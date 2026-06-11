@@ -131,36 +131,6 @@ All notebooks run on **Google Colab** — no local setup required. Click any bad
 
 ---
 
-## Repository Structure
-
-\`\`\`
-python-fundamentals/
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── 00_Stage-1-Getting-Started/      # shared with the fellowship
-│   ├── macOS.md / WINDOWS.md / LINUX.md
-│   ├── commandline.md
-│   ├── github.md
-│   ├── python-venv.md
-│   ├── vscode.md
-│   └── markdown.md
-├── slides/
-│   ├── session-01-first-programs.pdf
-│   ├── session-02-data-types.pdf
-│   └── ...
-├── labs/
-│   ├── lab-01-first-programs.ipynb
-│   ├── lab-02-expressions.ipynb
-│   └── ...
-├── solutions/
-│   └── lab-01-solutions.ipynb
-└── assignments/
-    └── ...
-\`\`\`
-
----
-
 ## Getting Started
 
 ### Option 1: Google Colab (Recommended for beginners)
