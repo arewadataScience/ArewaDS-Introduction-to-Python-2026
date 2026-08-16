@@ -93,16 +93,16 @@ These guides walk you through the tools you'll use throughout the Arewa DataScie
 
 > ⏱️ Each session is paced for true beginners. Loops get a session and a half, and functions span two sessions — that's where first-timers actually get stuck, so we slow down there on purpose.
 
-| # | Topic | Slides | Lab | Recording | Key Concepts | Reading (Lambert) |
-|:---:|---|:---:|:---:|:---:|---|:---:|
-| 1 | First Programs & the Shell | [📊 Slides](#) | [💻 Lab 01](#) | [🎥 Recording](#) | The edit–run–debug loop, \`print\`, \`input\`, variables, comments | Ch. 1, §2.1–2.2 |
-| 2 | Data Types & Expressions | [📊 Slides](#) | [💻 Lab 02](#) | [🎥 Recording](#) | \`int\` / \`float\` / \`str\`, arithmetic, precedence, type conversion, f-strings | Ch. 2 |
-| 3 | Making Decisions | [📊 Slides](#) | [💻 Lab 03](#) | [🎥 Recording](#) | Booleans, comparison & logical operators, \`if\` / \`elif\` / \`else\` | Ch. 3 (selection) |
-| 4 | Repetition with Loops | [📊 Slides](#) | [💻 Lab 04](#) | [🎥 Recording](#) | \`while\`, \`for\`, \`range\`, accumulator & sentinel patterns | Ch. 3 (loops) |
-| 5 | Loop Patterns & Nested Logic | [📊 Slides](#) | [💻 Lab 05](#) | [🎥 Recording](#) | Nested loops, combining loops + conditions, input validation, debugging | Ch. 3 (cont.) |
-| 6 | Strings & Lists | [📊 Slides](#) | [💻 Lab 06](#) | [🎥 Recording](#) | Indexing, slicing, string methods, list operations, iteration | Ch. 4, §5.1 |
-| 7 | Dictionaries & First Functions | [📊 Slides](#) | [💻 Lab 07](#) | [🎥 Recording](#) | Key/value lookup, dict methods, defining functions, parameters, \`return\` | Ch. 5, §6.1 |
-| 8 | Functions in Depth & Capstone | [📊 Slides](#) | [💻 Lab 08](#) | [🎥 Recording](#) | Scope, multiple parameters, decomposition, end-to-end capstone program | Ch. 6 |
+| # | Topic | Slides | Lab | Recording | Key Concepts | Reading (Lambert) | Instructor |
+|:---:|---|:---:|:---:|:---:|---|:---:|:---:|
+| 1 | First Programs & the Shell | [📊 Slides](#) | [💻 Lab 01](#) | [🎥 Recording](#) | The edit–run–debug loop, \`print\`, \`input\`, variables, comments | Ch. 1, §2.1–2.2 | TBA |
+| 2 | Data Types & Expressions | [📊 Slides](#) | [💻 Lab 02](#) | [🎥 Recording](#) | \`int\` / \`float\` / \`str\`, arithmetic, precedence, type conversion, f-strings | Ch. 2 | TBA |
+| 3 | Making Decisions | [📊 Slides](#) | [💻 Lab 03](#) | [🎥 Recording](#) | Booleans, comparison & logical operators, \`if\` / \`elif\` / \`else\` | Ch. 3 (selection) | TBA |
+| 4 | Repetition with Loops | [📊 Slides](#) | [💻 Lab 04](#) | [🎥 Recording](#) | \`while\`, \`for\`, \`range\`, accumulator & sentinel patterns | Ch. 3 (loops) | TBA |
+| 5 | Loop Patterns & Nested Logic | [📊 Slides](#) | [💻 Lab 05](#) | [🎥 Recording](#) | Nested loops, combining loops + conditions, input validation, debugging | Ch. 3 (cont.) | TBA |
+| 6 | Strings & Lists | [📊 Slides](#) | [💻 Lab 06](#) | [🎥 Recording](#) | Indexing, slicing, string methods, list operations, iteration | Ch. 4, §5.1 | TBA |
+| 7 | Dictionaries & First Functions | [📊 Slides](#) | [💻 Lab 07](#) | [🎥 Recording](#) | Key/value lookup, dict methods, defining functions, parameters, \`return\` | Ch. 5, §6.1 | TBA |
+| 8 | Functions in Depth & Capstone | [📊 Slides](#) | [💻 Lab 08](#) | [🎥 Recording](#) | Scope, multiple parameters, decomposition, end-to-end capstone program | Ch. 6 | TBA |
 
 ---
 
