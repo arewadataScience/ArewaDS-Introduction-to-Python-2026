@@ -74,13 +74,12 @@ No prior coding, command-line, or math background is assumed. If you can use a w
 
 These guides walk you through the tools you'll use throughout the Arewa DataScience pathway — installing Python, the command line, Git/GitHub, virtual environments, VSCode, Markdown, and Google Colab. They are shared with the rest of the fellowship, so you set them up once here and reuse them in the ML course.
 
-
 | Title | Resource | Recording |
 | --- | --- | --- |
 | Initial Setup | [macOS](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/macOS.md) \| [Windows](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/WINDOWS.md) \| [Linux](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/LINUX.md#set-up-instructions-for-linux) | [Recording 1](https://www.youtube.com/watch?v=bRW5r7TK6KM) \| [Recording 2](#) |
-| VSCode for Python | [VSCode Setup](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/vscode.md) | [Recording 1](https://www.youtube.com/watch?v=pmUkRRqtpEY) \| [Recording 2](#) |
+| VSCode for Python | [VSCode Setup](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/vscode.md) | [Recording 1](https://www.youtube.com/watch?v=pmUkRRqtpEY) \| [Recording 2](https://youtu.be/CjIhMiXsoqw) |
 | Basic Command Line Operations | [Command Line](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/commandline.md) | [Recording 1](https://youtu.be/VgiP2-pHF3Y) \| [Recording 2](#) |
-| Setup Git and GitHub | [Git / GitHub](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/github.md) | [Recording 1](https://www.youtube.com/watch?v=FN4J5wHK898) \| [Recording 2](#) |
+| Setup Git and GitHub | [Git / GitHub](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/github.md) | [Recording 1](https://www.youtube.com/watch?v=FN4J5wHK898) \| [Recording 2](https://youtu.be/KR_f0ARgzpc) |
 | Python Virtual Environments | [Virtual Environment](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/python-venv.md) | [Recording 1](https://youtu.be/iszkG8QSPng) \| [Recording 2](#) |
 | Introduction to Markdown | [Markdown](https://github.com/arewadataScience/python-programming-fellowship/blob/main/00_Stage-1-Getting-Started/markdown.md) | [Recording 1](https://www.youtube.com/watch?v=oNwEag0eqwE) \| [Recording 2](#) |
 | Google Colab | [Google Colab](#) | [Recording 1](https://youtu.be/3P5PgSzHPmI) \| [Recording 2](#) |
