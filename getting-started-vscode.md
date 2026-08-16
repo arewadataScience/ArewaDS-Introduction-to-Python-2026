@@ -295,6 +295,15 @@ In your VS Code terminal, paste this command exactly and press Enter:
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
+For Mac users:
+
+```powershell
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+
+
+
 Reading it from left to right: run PowerShell with script restrictions bypassed for this one command, download the installation script from astral.sh, and execute it.
 
 Installation takes a few seconds and prints a short summary when it finishes.
