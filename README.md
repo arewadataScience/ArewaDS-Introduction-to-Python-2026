@@ -85,7 +85,10 @@ Work through it before Session 1. By the end of it, you are expected to be able 
 - Install and use **uv** to manage Python versions and project dependencies
 - Create, activate, and deactivate a Python virtual environment, and explain why projects need one
 - Install Git, configure your identity, and create/push a repository to GitHub
-- Clone and fork repositories, work on branches, and open a pull request — all from inside VS Code
+- Clone this course's repository (`arewadataScience/ArewaDS-Introduction-to-Python-2026`) to your own machine, both from the terminal and from inside VS Code
+- Explain `git push` and `git pull` — what each does, and what happens if you push without pulling first
+- Fork a repository, work on branches, and open a pull request — all from inside VS Code
+- Create your own `ArewaDS-Practice` repository on GitHub and use it as a personal sandbox to practice the push/pull/branch cycle
 - Write and preview basic **Markdown** — headings, lists, links, tables, and code blocks — for READMEs and notebook cells
 - Build, run, and push a small end-to-end Python project (script **and** notebook) using the tools above
 
@@ -96,9 +99,12 @@ Work through it before Session 1. By the end of it, you are expected to be able 
 | Basic command line operations | [§6](getting-started-vscode.md#6-basic-command-line-operations) |
 | Installing uv & Python | [§7–8](getting-started-vscode.md#7-installing-uv) |
 | Virtual environments with uv | [§9](getting-started-vscode.md#9-creating-a-virtual-environment-with-uv) |
-| Git & GitHub | [§10–11](getting-started-vscode.md#10-installing-git) |
-| GitHub in VS Code: forking, branches, pull requests | [§12](getting-started-vscode.md#12-github-in-vs-code-managing-github-files) |
-| Introduction to Markdown | [§13](getting-started-vscode.md#13-introduction-to-markdown) |
+| Introduction to Markdown | [§10](getting-started-vscode.md#10-introduction-to-markdown) |
+| Installing Git & setting up GitHub | [§12–13](getting-started-vscode.md#12-installing-git) |
+| Cloning the course repo (terminal + VS Code) | [§14.2](getting-started-vscode.md#142-cloning-a-repository) |
+| Understanding push & pull | [§14.5](getting-started-vscode.md#145-the-daily-cycle-side-by-side) |
+| Branches, merge conflicts, pull requests | [§14.6–14.8](getting-started-vscode.md#146-working-with-branches) |
+| Practice repo: `ArewaDS-Practice` | [§14.9](getting-started-vscode.md#149-your-own-practice-repository) |
 | VS Code and AI | [§15](getting-started-vscode.md#15-vs-code-and-ai) |
 | Setup checklist | [§21](getting-started-vscode.md#21-setup-checklist) |
 

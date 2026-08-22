@@ -902,42 +902,44 @@ The rest of this section walks through the clone workflow first, because it is s
 
 ### 14.2 Cloning a repository
 
+This is exactly how every student gets this course's own repository onto their machine, so we will use it as the running example: `https://github.com/arewadataScience/ArewaDS-Introduction-to-Python-2026`.
+
 **From VS Code:**
 
 1. Open the Command Palette (`Ctrl/Cmd + Shift + P`), type `Git: Clone`, and press Enter.
-2. Paste the repository's URL — copied from the green **Code** button on its GitHub page — and press Enter.
-3. Choose a folder to clone into (your `projects` folder is a sensible default).
+2. Paste the repository's URL — `https://github.com/arewadataScience/ArewaDS-Introduction-to-Python-2026` — copied from the green **Code** button on its GitHub page, and press Enter.
+3. Choose the `projects` folder you set up in section 2.4 as the destination.
 4. When VS Code asks whether to open the cloned repository, choose **Open**.
 
 **From the terminal**, the equivalent is:
 
 ```bash
-git clone https://github.com/some-org/some-repo.git
-cd some-repo
+git clone https://github.com/arewadataScience/ArewaDS-Introduction-to-Python-2026.git
+cd ArewaDS-Introduction-to-Python-2026
 code .
 ```
 
-Both routes produce an identical result: a full copy of the repository, including its entire history, connected to GitHub as a **remote** named `origin`.
+Both routes produce an identical result: a full copy of the course repository, including its entire history, sitting inside your `projects` folder and connected to GitHub as a **remote** named `origin`. From here on, whenever this guide says "clone the repository," this is the operation it means.
 
 ### 14.3 Forking a repository
 
-A **fork** is your own personal copy of someone else's repository, living under your own GitHub account. You get full write access to your fork even though you have none on the original. This is how open-source contribution — and how you will submit work back to a shared course repository — actually works.
+A **fork** is your own personal copy of someone else's repository, living under your own GitHub account. You get full write access to your fork even though you have none on the original. This is how open-source contribution — and how you will submit work back to a shared course repository — actually works. Most students do not have write access to `arewadataScience/ArewaDS-Introduction-to-Python-2026` itself, so if you ever need to propose a change to the course material, this is the path you would take.
 
-1. On GitHub, open the repository you want to contribute to and click **Fork** (top right).
-2. GitHub creates `your-username/repo-name` under your account. This is your fork.
-3. Clone **your fork**, not the original, using the steps in section 14.2.
+1. On GitHub, open the repository you want to contribute to — for example, `arewadataScience/ArewaDS-Introduction-to-Python-2026` — and click **Fork** (top right).
+2. GitHub creates `your-username/ArewaDS-Introduction-to-Python-2026` under your account. This is your fork.
+3. Clone **your fork**, not the original, using the steps in section 14.2, substituting your fork's URL for the course repository's URL.
 
 You now have two remotes to keep straight:
 
 | Remote name | Points to | Purpose |
 |---|---|---|
-| `origin` | Your fork (`your-username/repo-name`) | Where you push your own commits |
-| `upstream` | The original repository | Where you pull updates from, so your fork does not go stale |
+| `origin` | Your fork (`your-username/ArewaDS-Introduction-to-Python-2026`) | Where you push your own commits |
+| `upstream` | The original repository (`arewadataScience/ArewaDS-Introduction-to-Python-2026`) | Where you pull updates from, so your fork does not go stale |
 
 Add the second remote once, from the terminal (VS Code has no menu for this step):
 
 ```bash
-git remote add upstream https://github.com/original-owner/repo-name.git
+git remote add upstream https://github.com/arewadataScience/ArewaDS-Introduction-to-Python-2026.git
 git remote -v
 ```
 
@@ -975,6 +977,14 @@ The numbers on the Sync Changes button matter: an upward arrow with a number sho
 | Pull | Click **Sync Changes** | `git pull` |
 
 Neither route is "more correct." The UI is faster for reviewing diffs visually; the terminal is faster once the commands are muscle memory, and it is what you will read in almost every tutorial and Stack Overflow answer. Learn both — you will use the UI most days and the terminal when something needs a command the UI does not expose, such as the `remote add` step in section 14.3.
+
+**`git push`, explained.** Pushing uploads the commits you have made locally to the remote repository on GitHub, so that other people — and other machines you use — can see them. Nothing you commit is visible to anyone else, and no work is backed up off your laptop, until you push it. Run `git push` (or click **Sync Changes**, or the up-arrow if it shows a number) after you have committed something you are ready to share.
+
+If someone else has pushed commits to the same branch since you last pulled, GitHub will **reject your push** — you will see an error like `! [rejected] ... (fetch first)`. This is not a bug; it is Git refusing to silently overwrite history it does not have a copy of locally. The fix is always the same: pull first (`git pull`), resolve any conflicts (section 14.7) if Git cannot merge automatically, then push again.
+
+**`git pull`, explained.** Pulling downloads commits that exist on the remote but not yet on your machine, and merges them into your current branch. Run it at the start of a work session, and any time you know someone else — a teammate, or you on another computer — has pushed changes you do not have yet. In VS Code, clicking **Sync Changes** does a pull and a push together; if you only want to pull, use the **...** menu in the Source Control panel and choose **Pull**, or run `git pull` in the terminal.
+
+Forgetting to pull before you start working is the single most common source of merge conflicts: you and the remote both moved forward from the same starting point, and Git has to reconcile two different versions of the same lines when you finally do pull. Pulling often, especially at the start of every session, keeps these conflicts small and rare instead of large and painful.
 
 ### 14.6 Working with branches
 
@@ -1037,9 +1047,58 @@ With the **GitHub Pull Requests** extension installed (section 11), from the for
 
 The browser works identically if you prefer it — click **Compare & pull request** on your fork's GitHub page after pushing a branch — but doing it in VS Code means you never lose your place in the editor.
 
-### 14.9 Practice exercise
+### 14.9 Your own practice repository
 
-1. Fork any small public repository (ask your instructor for one, or use this course's repository).
+Everything so far has used the shared `arewadataScience/ArewaDS-Introduction-to-Python-2026` repository, which you do not have write access to. Before you touch pull requests and branches on someone else's project, it helps to have a repository that is entirely your own — a sandbox where you can push, pull, and even break things with no consequences. You will keep using this repository throughout the rest of the course any time you want to practise a git command before trying it for real.
+
+**Step 1 — create the repository on GitHub.**
+
+1. Go to **[github.com/new](https://github.com/new)**.
+2. Set **Repository name** to `ArewaDS-Practice`.
+3. Leave it **Public**.
+4. Check **Add a README file**.
+5. Click **Create repository**.
+
+You now have `your-username/ArewaDS-Practice`, containing a single `README.md`, under your own account.
+
+**Step 2 — clone it into your `projects` folder.** This is the same operation as section 14.2, just with your own repository's URL.
+
+From VS Code: Command Palette → `Git: Clone` → paste `https://github.com/your-username/ArewaDS-Practice` → choose your `projects` folder → **Open**.
+
+From the terminal:
+
+```bash
+git clone https://github.com/your-username/ArewaDS-Practice.git
+cd ArewaDS-Practice
+code .
+```
+
+**Step 3 — practise pushing.** Open `README.md`, add a line of your own (say what you are learning this week), and save. Then:
+
+| Step | Terminal | VS Code |
+|---|---|---|
+| Check what changed | `git status` | Source Control panel, **Changes** list |
+| Stage | `git add README.md` | Click **+** next to `README.md` |
+| Commit | `git commit -m "Update README"` | Type a message, click **✓** |
+| Push | `git push` | Click **Sync Changes** |
+
+Refresh the repository page on github.com and confirm your change is there. You have just pushed.
+
+**Step 4 — practise pulling.** In your browser, on github.com, open `README.md` in your `ArewaDS-Practice` repository, click the pencil icon to edit it directly on GitHub, add another line, and commit the change straight from the browser. Your local clone now knows nothing about this change — it exists only on GitHub. Back in VS Code or the terminal, run:
+
+```bash
+git pull
+```
+
+or click **Sync Changes** (the down-arrow will show a `1`). Open `README.md` locally and confirm the line you added on github.com is now there. You have just pulled.
+
+**Step 5 — practise branching.** Using the steps from section 14.6, create a branch (for example `add-notes`), make a small edit, commit it, and push the branch with `git push -u origin add-notes`. Because this is your own repository, you can also try merging it back into `main` yourself, either by opening a pull request and merging it (section 14.8) or, once you are comfortable, with `git checkout main` followed by `git merge add-notes`.
+
+Keep `ArewaDS-Practice` around for the rest of the course. Any time an instruction elsewhere in this guide asks you to try a git command "somewhere safe," this is the repository to use — it is separate from `ArewaDS-Introduction-to-Python-2026` and nothing you do here affects the coursework repository or your classmates.
+
+### 14.10 Practice exercise
+
+1. Fork any small public repository (ask your instructor for one, or use this course's repository, `arewadataScience/ArewaDS-Introduction-to-Python-2026`).
 2. Clone your fork (section 14.2), and add the original as `upstream` (section 14.3).
 3. Create a new branch with a descriptive name (section 14.6).
 4. Make one small, genuine improvement — fix a typo, clarify a sentence, add a missing example.
@@ -1519,8 +1578,11 @@ Confirm each item before the next session. Where a check is a command, run it in
 - [ ] `git config --global --list` shows your name and email
 - [ ] GitHub account created, with two-factor authentication enabled
 - [ ] VS Code signed in to GitHub
-- [ ] You can clone a repository, and you can fork one and add it as `upstream` (section 14.2–14.3)
+- [ ] You have cloned the course repository, `ArewaDS-Introduction-to-Python-2026`, to your `projects` folder (section 14.2)
+- [ ] You can fork a repository and add the original as `upstream` (section 14.3)
 - [ ] You have created a branch, made a commit, and pushed it, either through the Source Control panel or the terminal (section 14.5–14.6)
+- [ ] You can explain, in your own words, what `git push` and `git pull` each do, and what happens if you push without pulling first (section 14.5)
+- [ ] You have created your own `ArewaDS-Practice` repository and practiced push, pull, and branching in it (section 14.9)
 - [ ] You can write and preview basic Markdown — headings, lists, links, code blocks, a table (section 10.5)
 - [ ] All extensions from section 11.1 installed
 - [ ] An AI chat/completion extension installed and tried at least once (section 15.5)
