@@ -25,15 +25,16 @@ Wherever a step differs by operating system, you will see three tabs of instruct
 9. [Creating a virtual environment with uv](#9-creating-a-virtual-environment-with-uv)
 10. [Installing Git](#10-installing-git)
 11. [Setting up GitHub](#11-setting-up-github)
-12. [Introduction to Markdown](#12-introduction-to-markdown)
-13. [VS Code extensions for data science](#13-vs-code-extensions-for-data-science)
-14. [VS Code and AI](#14-vs-code-and-ai)
-15. [Your first project, end to end](#15-your-first-project-end-to-end)
-16. [Pushing your project to GitHub](#16-pushing-your-project-to-github)
-17. [Optional: conda and when you might need it](#17-optional-conda-and-when-you-might-need-it)
-18. [Troubleshooting](#18-troubleshooting)
-19. [Command reference card](#19-command-reference-card)
-20. [Setup checklist](#20-setup-checklist)
+12. [GitHub in VS Code: managing GitHub files](#12-github-in-vs-code-managing-github-files)
+13. [Introduction to Markdown](#13-introduction-to-markdown)
+14. [VS Code extensions for data science](#14-vs-code-extensions-for-data-science)
+15. [VS Code and AI](#15-vs-code-and-ai)
+16. [Your first project, end to end](#16-your-first-project-end-to-end)
+17. [Pushing your project to GitHub](#17-pushing-your-project-to-github)
+18. [Optional: conda and when you might need it](#18-optional-conda-and-when-you-might-need-it)
+19. [Troubleshooting](#19-troubleshooting)
+20. [Command reference card](#20-command-reference-card)
+21. [Setup checklist](#21-setup-checklist)
 
 ---
 
@@ -69,7 +70,7 @@ VS Code runs on your own machine, keeps your work permanently, handles notebooks
 
 ### 1.4 A note on the two managers you will hear about
 
-You may have heard of Anaconda or conda. They are widely used in scientific computing and there is nothing wrong with them. On this course we will use **uv** instead, because it is dramatically faster, much smaller to download, installs Python for you, and produces reproducible projects with far less ceremony. Section 16 explains the cases where conda is still the better choice.
+You may have heard of Anaconda or conda. They are widely used in scientific computing and there is nothing wrong with them. On this course we will use **uv** instead, because it is dramatically faster, much smaller to download, installs Python for you, and produces reproducible projects with far less ceremony. Section 18 explains the cases where conda is still the better choice.
 
 Do not install both and mix them in the same project. Pick one per project.
 
@@ -138,7 +139,7 @@ Also avoid spaces, accents, and special characters in folder and file names. `he
       - ☑ **Add to PATH** (this one is essential, and is normally ticked already)
    5. **Install**, then **Finish**.
 
-The two "Open with Code" options mean you can right-click any folder in File Explorer and open it directly in VS Code. **Add to PATH** means you can type `code .` in any terminal to open the current folder in VS Code. If you miss this option, see section 18.4 for the fix.
+The two "Open with Code" options mean you can right-click any folder in File Explorer and open it directly in VS Code. **Add to PATH** means you can type `code .` in any terminal to open the current folder in VS Code. If you miss this option, see section 19.4 for the fix.
 
 ### macOS
 
@@ -166,7 +167,7 @@ The two "Open with Code" options mean you can right-click any folder in File Exp
 
 VS Code opens on a Welcome tab. You will be asked to choose a colour theme. Pick whichever you find comfortable, and do not agonise over it — you can change it at any time with `Ctrl + K` then `Ctrl + T` (`Cmd + K` then `Cmd + T` on macOS).
 
-You may be prompted to install extra tooling. Ignore all prompts for now. We install extensions deliberately in section 13.
+You may be prompted to install extra tooling. Ignore all prompts for now. We install extensions deliberately in section 14.
 
 > **A note on keyboard shortcuts.** From here on, this guide writes shortcuts as `Ctrl + X`. On macOS, read every `Ctrl` as `Cmd` unless stated otherwise — this is true for almost all VS Code shortcuts. Where the two platforms genuinely differ, both are given.
 
@@ -415,7 +416,7 @@ This step is not optional, on any platform. Close the terminal panel by clicking
 uv --version
 ```
 
-You should see something like `uv 0.9.x`. If you see an error instead, go to section 18.1.
+You should see something like `uv 0.9.x`. If you see an error instead, go to section 19.1.
 
 ### 7.4 Keeping uv current
 
@@ -471,7 +472,7 @@ With uv, the environment lives in a folder called `.venv` inside your project, a
 
 ## 9. Creating a virtual environment with uv
 
-Section 8.4 described *what* a virtual environment is. Here you will build one yourself, by hand, before we let uv manage the process automatically for real projects in section 15. Doing it manually once removes the mystery.
+Section 8.4 described *what* a virtual environment is. Here you will build one yourself, by hand, before we let uv manage the process automatically for real projects in section 16. Doing it manually once removes the mystery.
 
 ### 9.1 Make a scratch folder
 
@@ -531,7 +532,7 @@ Identical command on every platform. Your prompt returns to normal, and `python 
 
 ### 9.7 The shortcut you will actually use
 
-In practice, you will rarely type `uv venv` and activate by hand, because `uv run` (introduced in section 15) creates and uses the right environment automatically, every time, without an activation step at all. Section 9.1–9.6 exists so that when `uv run` does this invisibly later, you know exactly what it is doing on your behalf, and you can diagnose it if something looks wrong.
+In practice, you will rarely type `uv venv` and activate by hand, because `uv run` (introduced in section 16) creates and uses the right environment automatically, every time, without an activation step at all. Section 9.1–9.6 exists so that when `uv run` does this invisibly later, you know exactly what it is doing on your behalf, and you can diagnose it if something looks wrong.
 
 ### 9.8 Practice exercise
 
@@ -649,13 +650,178 @@ On **Windows**, you do not need to configure SSH keys or personal access tokens 
 
 To sign VS Code in, click the **Accounts** icon at the bottom of the Activity Bar, choose **Sign in with GitHub**, and complete the process in the browser window that opens. This enables settings sync and smooths every later interaction with GitHub.
 
-The first time you push code (section 16), a browser window will open asking you to authorise. Approve it once, and your machine remembers the credentials.
+The first time you push code (section 17), a browser window will open asking you to authorise. Approve it once, and your machine remembers the credentials.
 
 ---
 
-## 12. Introduction to Markdown
+## 12. GitHub in VS Code: managing GitHub files
 
-### 12.1 What Markdown is, and why a data scientist needs it
+Section 11 created your GitHub account. This section teaches you the actual daily workflow — cloning, forking, staging, committing, branching, pushing, pulling, and opening a pull request — entirely from inside VS Code, with the terminal equivalent alongside every step so you understand what the interface is doing on your behalf. This is the single most important workflow in the course after Python itself: almost every collaborative data science project, published dataset, and open-source library you touch from here on is managed exactly this way.
+
+### 12.1 Three ways a project ends up on your machine
+
+Beginners often blur these together. They are different operations, used in different situations.
+
+| Operation | What it does | When you use it |
+|---|---|---|
+| **`git init`** | Turns an *existing local folder* into a Git repository, from scratch | Starting a brand-new project of your own (this is what `uv init` did for you in section 16) |
+| **`git clone`** | Downloads a *copy of a repository you already have write access to* | Working on your own repository, or one your team added you to |
+| **Fork, then clone** | Makes *your own copy of someone else's repository* on GitHub, then downloads that copy | Contributing to a project you do not have write access to — including this course's own repository |
+
+The rest of this section walks through the clone workflow first, because it is simpler, then the fork workflow, which is what you will use to submit coursework or contribute to open-source projects.
+
+### 12.2 Cloning a repository
+
+**From VS Code:**
+
+1. Open the Command Palette (`Ctrl/Cmd + Shift + P`), type `Git: Clone`, and press Enter.
+2. Paste the repository's URL — copied from the green **Code** button on its GitHub page — and press Enter.
+3. Choose a folder to clone into (your `projects` folder is a sensible default).
+4. When VS Code asks whether to open the cloned repository, choose **Open**.
+
+**From the terminal**, the equivalent is:
+
+```bash
+git clone https://github.com/some-org/some-repo.git
+cd some-repo
+code .
+```
+
+Both routes produce an identical result: a full copy of the repository, including its entire history, connected to GitHub as a **remote** named `origin`.
+
+### 12.3 Forking a repository
+
+A **fork** is your own personal copy of someone else's repository, living under your own GitHub account. You get full write access to your fork even though you have none on the original. This is how open-source contribution — and how you will submit work back to a shared course repository — actually works.
+
+1. On GitHub, open the repository you want to contribute to and click **Fork** (top right).
+2. GitHub creates `your-username/repo-name` under your account. This is your fork.
+3. Clone **your fork**, not the original, using the steps in section 12.2.
+
+You now have two remotes to keep straight:
+
+| Remote name | Points to | Purpose |
+|---|---|---|
+| `origin` | Your fork (`your-username/repo-name`) | Where you push your own commits |
+| `upstream` | The original repository | Where you pull updates from, so your fork does not go stale |
+
+Add the second remote once, from the terminal (VS Code has no menu for this step):
+
+```bash
+git remote add upstream https://github.com/original-owner/repo-name.git
+git remote -v
+```
+
+`git remote -v` lists both remotes and confirms the URLs are correct.
+
+To bring your fork up to date with the original repository later:
+
+```bash
+git fetch upstream
+git merge upstream/main
+```
+
+### 12.4 The Source Control panel, properly explained
+
+Open it with `Ctrl/Cmd + Shift + G`, or click the branching-lines icon in the Activity Bar (section 4.1). Four things live here, and matching each to its terminal command removes the mystery:
+
+| In the Source Control panel | Terminal equivalent | Meaning |
+|---|---|---|
+| A file listed under **Changes** | shown by `git status` | Modified since the last commit, not yet staged |
+| Clicking **+** next to a file (staging it) | `git add filename` | Marked to be included in the next commit |
+| Typing a message and clicking the **✓ Commit** button | `git commit -m "message"` | Permanently records the staged changes |
+| Clicking **Sync Changes** (or the cloud icon with numbers) | `git push` then `git pull` | Uploads your commits, then downloads anyone else's |
+
+The numbers on the Sync Changes button matter: an upward arrow with a number shows commits you have not yet pushed; a downward arrow shows commits on GitHub you do not yet have locally.
+
+### 12.5 The daily cycle, side by side
+
+| Step | VS Code UI | Terminal |
+|---|---|---|
+| See what changed | Source Control panel, **Changes** list | `git status` |
+| Review a specific change | Click the filename to open a diff view | `git diff filename` |
+| Stage everything | Hover **Changes**, click **+** | `git add .` |
+| Commit | Type a message, click **✓** | `git commit -m "message"` |
+| Push | Click **Sync Changes** | `git push` |
+| Pull | Click **Sync Changes** | `git pull` |
+
+Neither route is "more correct." The UI is faster for reviewing diffs visually; the terminal is faster once the commands are muscle memory, and it is what you will read in almost every tutorial and Stack Overflow answer. Learn both — you will use the UI most days and the terminal when something needs a command the UI does not expose, such as the `remote add` step in section 12.3.
+
+### 12.6 Working with branches
+
+A **branch** is an independent line of work — a way to try a change without touching the working version until you are ready. Every repository has a default branch, almost always called `main`.
+
+**Creating and switching branches in VS Code:**
+
+1. Click the branch name shown in the bottom-left corner of the status bar (it reads `main` by default).
+2. Choose **Create new branch...**, and give it a short, descriptive name — `add-loop-examples`, not `patch1`.
+3. VS Code switches you onto the new branch immediately. The status bar updates to show its name.
+
+The terminal equivalent:
+
+```bash
+git checkout -b add-loop-examples
+```
+
+Make your changes, stage, and commit as usual (section 12.5) — everything you commit now belongs to this branch, not to `main`, until you merge it. When you push a brand-new branch for the first time, VS Code's Source Control panel offers a **Publish Branch** button — the terminal equivalent is:
+
+```bash
+git push -u origin add-loop-examples
+```
+
+Switch back to `main` at any time by clicking the branch name in the status bar again and selecting `main`.
+
+> **Why bother with branches for a solo learning project?** Because the habit is the point. The moment you work with anyone else — a group project, a research supervisor, an open-source maintainer — commits land on branches first and `main` stays stable and working at all times. Building the habit now, while the stakes are low, means it costs you nothing later.
+
+### 12.7 Handling merge conflicts
+
+A **merge conflict** happens when Git cannot automatically combine two sets of changes to the same lines of the same file — most often because you and a collaborator (or you and your past self, on two different branches) edited the same place differently. This is not an error to fear; it is Git correctly refusing to guess.
+
+When a conflict occurs, VS Code marks the affected file in the Source Control panel and opens it with a built-in **merge editor** showing:
+
+- **Current Change** — what your branch has
+- **Incoming Change** — what you are merging in
+- Buttons to **Accept Current**, **Accept Incoming**, **Accept Both**, or edit the result by hand
+
+Work through each conflicted section, choose the correct outcome (or write it yourself, combining both), save the file, then stage and commit as normal — the commit itself records the conflict as resolved. If you would rather see the raw markers VS Code is interpreting, they look like this in the file:
+
+```
+<<<<<<< HEAD
+your version of the line
+=======
+their version of the line
+>>>>>>> incoming-branch-name
+```
+
+Delete the marker lines (`<<<<<<<`, `=======`, `>>>>>>>`) and keep only the content you actually want, on every conflict, before committing.
+
+### 12.8 Opening and reviewing a pull request without leaving VS Code
+
+A **pull request** (PR) is a request to merge your branch (or your fork) into someone else's repository, with a place for discussion and review before it happens. This is how you submit coursework to a shared class repository, and how essentially all open-source contribution works.
+
+With the **GitHub Pull Requests** extension installed (section 14), from the fork-and-branch state you built in sections 12.3 and 12.6:
+
+1. Push your branch (section 12.6).
+2. Open the **GitHub Pull Requests** icon in the Activity Bar.
+3. Click **Create Pull Request**, confirm the base repository/branch (usually the original repository's `main`) and your branch, write a short description of what changed and why, and submit.
+4. Reviewers can comment directly on your lines of code; you will see their comments in the same panel and can reply or push follow-up commits to the same branch, which update the PR automatically.
+
+The browser works identically if you prefer it — click **Compare & pull request** on your fork's GitHub page after pushing a branch — but doing it in VS Code means you never lose your place in the editor.
+
+### 12.9 Practice exercise
+
+1. Fork any small public repository (ask your instructor for one, or use this course's repository).
+2. Clone your fork (section 12.2), and add the original as `upstream` (section 12.3).
+3. Create a new branch with a descriptive name (section 12.6).
+4. Make one small, genuine improvement — fix a typo, clarify a sentence, add a missing example.
+5. Stage, commit with a clear message, and push the branch.
+6. Open a pull request back to the original repository (section 12.8), describing what you changed and why.
+7. Whether or not it is merged, you have now completed the exact workflow used to contribute to real open-source projects.
+
+---
+
+## 13. Introduction to Markdown
+
+### 13.1 What Markdown is, and why a data scientist needs it
 
 **Markdown** is a way of formatting text — headings, bold, lists, links, images, tables, code — using plain, readable symbols instead of a word processor's menus. You have been reading it for the last eleven sections: this entire guide is a Markdown file.
 
@@ -668,7 +834,7 @@ You need it because it is the *lingua franca* of the tools around your code, not
 
 In short: your code speaks Python, but you explain your code in Markdown. Both are core skills for this course.
 
-### 12.2 The essentials
+### 13.2 The essentials
 
 You need remarkably few symbols to be productive. Type the left-hand column exactly as shown, including blank lines around block elements (headings, lists, images), and it renders as the right-hand column describes.
 
@@ -737,15 +903,15 @@ def greet(name):
 ---
 ```
 
-### 12.3 Where to write and preview it
+### 13.3 Where to write and preview it
 
-- **In VS Code:** open any `.md` file, then press `Ctrl/Cmd + Shift + V` to open a live preview beside the raw text. The **Markdown All in One** extension (section 13) adds table formatting, list auto-continuation, and a table of contents generator.
+- **In VS Code:** open any `.md` file, then press `Ctrl/Cmd + Shift + V` to open a live preview beside the raw text. The **Markdown All in One** extension (section 14) adds table formatting, list auto-continuation, and a table of contents generator.
 - **On GitHub:** every `.md` file is rendered automatically when viewed in a repository — you never need to convert it to anything.
 - **In a Jupyter Notebook:** change a cell's type to *Markdown* (in VS Code's notebook toolbar, or with the keyboard shortcut `M` when a cell is selected but not being edited), then run the cell with `Shift + Enter` to render it.
 
-### 12.4 A worked example: a project README
+### 13.4 A worked example: a project README
 
-Every project you build from section 15 onward should have a `README.md` explaining what it is. Here is a minimal, honest one for a first project:
+Every project you build from section 16 onward should have a `README.md` explaining what it is. Here is a minimal, honest one for a first project:
 
 ```markdown
 # Iris Species Analysis
@@ -772,7 +938,7 @@ Jane Student — Arewa DataScience Academy, 2026
 
 Notice what this README does *not* do: it does not apologise, pad itself with filler, or promise more than the project delivers. A README's job is to let a stranger understand your project in under a minute.
 
-### 12.5 Practice exercise
+### 13.5 Practice exercise
 
 Create a file called `profile-draft.md` inside your `projects` folder and write a short personal data science profile using at least:
 
@@ -786,9 +952,9 @@ Open it with `Ctrl/Cmd + Shift + V` in VS Code and check that everything renders
 
 ---
 
-## 13. VS Code extensions for data science
+## 14. VS Code extensions for data science
 
-### 13.1 Installing from the terminal
+### 14.1 Installing from the terminal
 
 Extensions can be installed by clicking through the Extensions panel, but it is faster and far more reproducible to use the terminal. This command is identical on Windows, macOS, and Linux. Paste this block into your VS Code terminal:
 
@@ -808,7 +974,7 @@ code --install-extension tamasfe.even-better-toml
 
 Restart VS Code when the installations finish.
 
-### 13.2 What each one does
+### 14.2 What each one does
 
 **Essential**
 
@@ -828,12 +994,12 @@ Restart VS Code when the installations finish.
 | GitHub Pull Requests | `GitHub.vscode-pull-request-github` | Review and manage pull requests without leaving the editor |
 | Rainbow CSV | `mechatroner.rainbow-csv` | Colours CSV columns so raw data files are readable |
 | Error Lens | `usernamehw.errorlens` | Displays errors inline rather than hiding them in a panel |
-| Markdown All in One | `yzhang.markdown-all-in-one` | Preview, table formatting, and shortcuts for the Markdown from section 12 |
+| Markdown All in One | `yzhang.markdown-all-in-one` | Preview, table formatting, and shortcuts for the Markdown from section 13 |
 | Even Better TOML | `tamasfe.even-better-toml` | Syntax support for `pyproject.toml`, which uv creates |
 
 **A caution.** Extensions are tempting to collect. Each one consumes memory and startup time, and a heavily loaded VS Code becomes sluggish on a modest laptop. Install the list above, use it for a term, and add further extensions only when you have felt the specific need.
 
-### 13.3 A few settings worth changing
+### 14.3 A few settings worth changing
 
 Open the Command Palette, type `Preferences: Open User Settings (JSON)`, and add the following inside the outer braces. This file and its contents are identical across operating systems.
 
@@ -855,13 +1021,13 @@ These format your code on every save, mark the conventional line length, save yo
 
 ---
 
-## 14. VS Code and AI
+## 15. VS Code and AI
 
-### 14.1 Why this section exists
+### 15.1 Why this section exists
 
 You are learning Python at a moment when the editor itself can write, explain, and debug code alongside you. That is a genuine change to how programming is practised, and pretending otherwise would leave you unprepared for how research and industry teams already work. This section is not about replacing sections 1–13 — you still need the fundamentals in your own head, because you are the one who has to judge whether an AI's suggestion is correct, and an AI that writes code you cannot read is not actually saving you time. Think of it the way a calculator relates to arithmetic: enormously useful once you understand what it is doing, and a trap if you never learned to do it yourself.
 
-### 14.2 What you can do with AI inside VS Code today
+### 15.2 What you can do with AI inside VS Code today
 
 | Capability | What it looks like in practice |
 |---|---|
@@ -874,16 +1040,16 @@ You are learning Python at a moment when the editor itself can write, explain, a
 | **Generate tests and docstrings** | Point an assistant at a function and ask for test cases or a docstring, then check both by hand. |
 | **Terminal help** | Ask "what is the command to undo my last Git commit without losing the changes?" instead of guessing at flags. |
 
-### 14.3 Recommended tools and extensions
+### 15.3 Recommended tools and extensions
 
 | Tool | Type | Notes |
 |---|---|---|
 | **GitHub Copilot** (`GitHub.copilot` + `GitHub.copilot-chat`) | Inline completion + chat | The most widely used option, built directly into VS Code. **Free for verified students** through the GitHub Student Developer Pack (section 11.4) — apply for that before paying for anything. |
 | **Claude Code** | Terminal-native AI agent, with a VS Code companion extension | Strong at reasoning through multi-step tasks, explaining unfamiliar codebases, and larger refactors. Ask your instructor about classroom/education access before purchasing an individual plan. |
 | **Continue** (`Continue.continue`) | Open-source chat + completion | Lets you plug in different AI models, including free or lower-cost ones, if you want more control than a single vendor's extension gives you. |
-| **Error Lens** (`usernamehw.errorlens`, from section 13) | Not AI, but pairs well with it | Surfaces the exact error inline, which is exactly the text you will paste into an AI chat when you need help. |
+| **Error Lens** (`usernamehw.errorlens`, from section 14) | Not AI, but pairs well with it | Surfaces the exact error inline, which is exactly the text you will paste into an AI chat when you need help. |
 
-Install whichever chat/completion extension you choose the same way as section 13.1:
+Install whichever chat/completion extension you choose the same way as section 14.1:
 
 ```powershell
 code --install-extension GitHub.copilot
@@ -892,17 +1058,17 @@ code --install-extension GitHub.copilot-chat
 
 You do not need more than one completion tool running at a time — two suggesting ghost text simultaneously is confusing rather than helpful. Pick one for this course.
 
-### 14.4 Using AI well as a beginner: four rules
+### 15.4 Using AI well as a beginner: four rules
 
 1. **Never run or submit code you cannot explain line by line.** If an assistant writes a function and you cannot say what each line does, you have not learned it — ask "explain this line by line" before moving on, every time, until it becomes automatic.
 2. **Use it to get unstuck, not to skip the struggle entirely.** The productive moment in learning to program is usually the ten minutes before you understand something. Asking immediately removes that moment; asking after you have tried removes only the frustration.
 3. **Verify, don't trust.** AI assistants confidently produce incorrect code, invent library functions that do not exist, and misremember syntax. Run the code. Check the output against what you expect. This habit matters more in data science than almost anywhere else, because a wrong analysis can look identical to a right one until someone checks the numbers.
 4. **Check your course and institution's policy before using AI on graded work.** Using an assistant to understand a lab is usually encouraged; using one to produce a submission you present as entirely your own may not be, and the line between the two is a matter of institutional policy, not personal judgement. When in doubt, ask your instructor.
 
-### 14.5 Practice exercise
+### 15.5 Practice exercise
 
-1. Install a chat/completion extension from section 14.3.
-2. Open the `main.py` you will write in section 15, or any short script you already have.
+1. Install a chat/completion extension from section 15.3.
+2. Open the `main.py` you will write in section 16, or any short script you already have.
 3. Deliberately introduce a bug — for example, change `==` to `=` inside a condition, or misspell a variable name.
 4. Run the script, copy the exact error message, and ask the AI chat what it means and how to fix it, without asking it to just "fix my code."
 5. Fix the bug yourself using the explanation, then, in one sentence, write down what caused the error in your own words.
@@ -911,11 +1077,11 @@ If you can complete step 5 without looking at the AI's fix, you used the tool co
 
 ---
 
-## 15. Your first project, end to end
+## 16. Your first project, end to end
 
 Everything is installed. We now build a small project to confirm that the pieces work together. Every command below is identical on Windows, macOS, and Linux unless marked otherwise.
 
-### 15.1 Create the project
+### 16.1 Create the project
 
 In the terminal:
 
@@ -932,11 +1098,11 @@ code .
 |---|---|
 | `pyproject.toml` | The project description, including its dependencies |
 | `main.py` | A starter script |
-| `README.md` | Documentation for human readers — this is the Markdown file from section 12 |
+| `README.md` | Documentation for human readers — this is the Markdown file from section 13 |
 | `.python-version` | Records which Python version this project uses |
 | `.gitignore` | Lists files Git should ignore |
 
-### 15.2 Add libraries
+### 16.2 Add libraries
 
 ```powershell
 uv add pandas matplotlib seaborn scikit-learn jupyter ipykernel
@@ -946,7 +1112,7 @@ Watch the terminal. uv creates the `.venv` folder — the same kind of environme
 
 Note that you did not activate anything and did not run `pip`. `uv add` handled the environment for you, exactly as promised in section 9.7.
 
-### 15.3 Write a script
+### 16.3 Write a script
 
 Open `main.py` in the editor and replace its contents with:
 
@@ -971,7 +1137,7 @@ plt.savefig("iris_scatter.png", dpi=150, bbox_inches="tight")
 print("\nFigure saved as iris_scatter.png")
 ```
 
-### 15.4 Run it
+### 16.4 Run it
 
 ```powershell
 uv run main.py
@@ -981,9 +1147,9 @@ uv run main.py
 
 You should see the summary tables printed, and a new file `iris_scatter.png` in the Explorer panel. Click it to view the figure.
 
-### 15.5 Work in a notebook
+### 16.5 Work in a notebook
 
-Scripts are right for pipelines you will run repeatedly. Notebooks are right for exploration, where you want to see the result of each step before deciding on the next, mixing code cells with the Markdown text cells from section 12.
+Scripts are right for pipelines you will run repeatedly. Notebooks are right for exploration, where you want to see the result of each step before deciding on the next, mixing code cells with the Markdown text cells from section 13.
 
 1. Create a new file called `exploration.ipynb`. In the Explorer panel, click the new file icon and type the name including the extension.
 2. The notebook interface opens.
@@ -1002,9 +1168,9 @@ iris.head()
 
 The dataframe appears below the cell. In the output, look for the **Open in Data Wrangler** button, which gives you a spreadsheet-style view for filtering, sorting, and cleaning, while writing the corresponding pandas code for you.
 
-7. Add a new cell above it, change its type to **Markdown**, and write a one-line heading describing what the notebook does — put section 12's skills to immediate use.
+7. Add a new cell above it, change its type to **Markdown**, and write a one-line heading describing what the notebook does — put section 13's skills to immediate use.
 
-### 15.6 Commands you will use every day
+### 16.6 Commands you will use every day
 
 | Command | Effect |
 |---|---|
@@ -1017,9 +1183,9 @@ The dataframe appears below the cell. In the output, look for the **Open in Data
 
 ---
 
-## 16. Pushing your project to GitHub
+## 17. Pushing your project to GitHub
 
-### 16.1 Initialise version control
+### 17.1 Initialise version control
 
 Still inside the project folder:
 
@@ -1033,7 +1199,7 @@ Reading these three lines: start tracking this folder, stage everything currentl
 
 A commit message should say what changed and why. `Add species comparison plot` is useful. `update` and `stuff` are not, and your future self will resent them.
 
-### 16.2 Check what Git is ignoring
+### 17.2 Check what Git is ignoring
 
 Open the `.gitignore` file that `uv init` created. It already excludes `.venv` and Python's cache folders. This is correct, because environments are rebuilt from `pyproject.toml` rather than shared.
 
@@ -1054,7 +1220,7 @@ data/raw/
 
 > **A rule with no exceptions.** Never commit passwords, API keys, or personal data. Once something reaches GitHub it is in the history permanently, and deleting the file afterwards does not remove it. Treat this with the seriousness you would give to publishing patient records.
 
-### 16.3 Create the repository on GitHub
+### 17.3 Create the repository on GitHub
 
 The easiest route is through VS Code itself, identically on every operating system:
 
@@ -1073,7 +1239,7 @@ git branch -M main
 git push -u origin main
 ```
 
-### 16.4 The daily rhythm
+### 17.4 The daily rhythm
 
 After the first push, your working cycle is:
 
@@ -1087,13 +1253,13 @@ Or use the Source Control panel: type a message in the box, click the tick to co
 
 Commit whenever you finish a coherent piece of work, which in practice means several times a day. Small, frequent commits are easy to review and easy to undo. One enormous commit at the end of the week is neither.
 
-### 16.5 Practice exercise
+### 17.5 Practice exercise
 
-Update your `README.md` (section 12's skills again) to properly describe the Iris project — what it does, how to run it, and what the figure shows — then commit and push that single change with a clear message. This is the smallest possible complete example of the daily rhythm you will repeat for the rest of the course.
+Update your `README.md` (section 13's skills again) to properly describe the Iris project — what it does, how to run it, and what the figure shows — then commit and push that single change with a clear message. This is the smallest possible complete example of the daily rhythm you will repeat for the rest of the course.
 
 ---
 
-## 17. Optional: conda and when you might need it
+## 18. Optional: conda and when you might need it
 
 You will meet conda in scientific computing, and you should know where it fits, regardless of operating system.
 
@@ -1130,9 +1296,9 @@ conda install -c conda-forge rdkit
 
 ---
 
-## 18. Troubleshooting
+## 19. Troubleshooting
 
-### 18.1 "uv is not recognised" / "command not found: uv"
+### 19.1 "uv is not recognised" / "command not found: uv"
 
 Almost always because the terminal was open before uv was installed.
 
@@ -1141,7 +1307,7 @@ Almost always because the terminal was open before uv was installed.
 3. If it still fails, close VS Code entirely and reopen it.
 4. If it still fails, restart your computer.
 
-### 18.2 Typing `python` opens the Microsoft Store (Windows only)
+### 19.2 Typing `python` opens the Microsoft Store (Windows only)
 
 Windows ships a placeholder that hijacks the `python` command. Disable it.
 
@@ -1149,7 +1315,7 @@ Open **Settings**, then **Apps**, then **Advanced app settings**, then **App exe
 
 Note that with uv you rarely type `python` directly. Use `uv run` instead.
 
-### 18.3 "Running scripts is disabled on this system" (Windows only)
+### 19.3 "Running scripts is disabled on this system" (Windows only)
 
 PowerShell blocks scripts by default. Run this once:
 
@@ -1159,23 +1325,23 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 This applies to your user account only and does not require administrator rights. Answer `Y` when prompted.
 
-### 18.4 `code .` does nothing (any platform)
+### 19.4 `code .` does nothing (any platform)
 
 The PATH entry, or the shell command, is missing. Open VS Code, press `Ctrl/Cmd + Shift + P`, type `Shell Command: Install 'code' command in PATH`, and run it. Then restart the terminal.
 
-### 18.5 "Permission denied" when running a downloaded script (macOS/Linux)
+### 19.5 "Permission denied" when running a downloaded script (macOS/Linux)
 
 macOS and Linux enforce file permissions more strictly than Windows. If a script refuses to run directly, either use the `sh`/`bash` prefix shown in section 7.1 (which sidesteps the permission entirely), or mark it executable first: `chmod +x script.sh`.
 
-### 18.6 macOS says the app "cannot be opened because the developer cannot be verified"
+### 19.6 macOS says the app "cannot be opened because the developer cannot be verified"
 
 Right-click (or Control-click) the app in Finder, choose **Open**, then confirm **Open** in the dialogue that appears. This is a one-time step per app and is expected behaviour for software downloaded outside the App Store.
 
-### 18.7 The notebook cannot find a library you installed
+### 19.7 The notebook cannot find a library you installed
 
 You have selected the wrong kernel. Click the kernel name at the top right of the notebook, choose **Select Another Kernel**, then **Python Environments**, and pick the one showing `.venv` inside your project folder. Almost every "but I installed it" problem is this, on every operating system.
 
-### 18.8 Downloads fail or time out
+### 19.8 Downloads fail or time out
 
 Frequently a network issue rather than a tool issue.
 
@@ -1183,11 +1349,11 @@ Frequently a network issue rather than a tool issue.
 - If you are on a university or corporate network, a proxy may be blocking the connection. Try a mobile hotspot to confirm.
 - If a download stalls repeatedly, run the command again. uv caches what it already fetched and resumes rather than starting over.
 
-### 18.9 Git asks for a password and rejects it
+### 19.9 Git asks for a password and rejects it
 
 GitHub stopped accepting account passwords for Git operations. Let Git's credential helper handle it: when a browser window opens, sign in there. On Windows, if credentials have become stale, open **Credential Manager** from the Start menu, go to **Windows Credentials**, and delete any entry mentioning `github.com`; the next push will prompt you afresh. On macOS, do the same via **Keychain Access**, searching for `github.com`.
 
-### 18.10 Filename or path too long (Windows)
+### 19.10 Filename or path too long (Windows)
 
 Windows historically limited paths to 260 characters. Shorten your project path, which is another reason to work in `C:\Users\YourName\projects` rather than deep inside Documents. You can also run, in a terminal opened as administrator:
 
@@ -1195,7 +1361,7 @@ Windows historically limited paths to 260 characters. Shorten your project path,
 git config --system core.longpaths true
 ```
 
-### 18.11 Everything is broken and you cannot work out why
+### 19.11 Everything is broken and you cannot work out why
 
 Delete the environment and rebuild it. This is safe, because the environment is disposable by design, on every operating system.
 
@@ -1215,7 +1381,7 @@ If the problem persists, note the exact error message, including the final few l
 
 ---
 
-## 19. Command reference card
+## 20. Command reference card
 
 ### VS Code shortcuts
 
@@ -1294,7 +1460,7 @@ If the problem persists, note the exact error message, including the final few l
 
 ---
 
-## 20. Setup checklist
+## 21. Setup checklist
 
 Confirm each item before the next session. Where a check is a command, run it in a fresh VS Code terminal.
 
@@ -1311,14 +1477,16 @@ Confirm each item before the next session. Where a check is a command, run it in
 - [ ] `git config --global --list` shows your name and email
 - [ ] GitHub account created, with two-factor authentication enabled
 - [ ] VS Code signed in to GitHub
-- [ ] You can write and preview basic Markdown — headings, lists, links, code blocks, a table (section 12.5)
-- [ ] All extensions from section 13.1 installed
-- [ ] An AI chat/completion extension installed and tried at least once (section 14.5)
+- [ ] You can clone a repository, and you can fork one and add it as `upstream` (section 12.2–12.3)
+- [ ] You have created a branch, made a commit, and pushed it, either through the Source Control panel or the terminal (section 12.5–12.6)
+- [ ] You can write and preview basic Markdown — headings, lists, links, code blocks, a table (section 13.5)
+- [ ] All extensions from section 14.1 installed
+- [ ] An AI chat/completion extension installed and tried at least once (section 15.5)
 - [ ] The `iris-analysis` project runs and produces `iris_scatter.png`
 - [ ] A notebook runs a cell using the `.venv` kernel, including at least one Markdown cell
 - [ ] The project is published to GitHub, with a proper `README.md`, and visible in the browser
 
-If any item fails, work through section 18 first. Bring the exact error message to class if you remain stuck.
+If any item fails, work through section 19 first. Bring the exact error message to class if you remain stuck.
 
 ---
 

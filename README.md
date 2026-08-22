@@ -85,6 +85,7 @@ Work through it before Session 1. By the end of it, you are expected to be able 
 - Install and use **uv** to manage Python versions and project dependencies
 - Create, activate, and deactivate a Python virtual environment, and explain why projects need one
 - Install Git, configure your identity, and create/push a repository to GitHub
+- Clone and fork repositories, work on branches, and open a pull request — all from inside VS Code
 - Write and preview basic **Markdown** — headings, lists, links, tables, and code blocks — for READMEs and notebook cells
 - Build, run, and push a small end-to-end Python project (script **and** notebook) using the tools above
 
@@ -96,8 +97,10 @@ Work through it before Session 1. By the end of it, you are expected to be able 
 | Installing uv & Python | [§7–8](getting-started-vscode.md#7-installing-uv) |
 | Virtual environments with uv | [§9](getting-started-vscode.md#9-creating-a-virtual-environment-with-uv) |
 | Git & GitHub | [§10–11](getting-started-vscode.md#10-installing-git) |
-| Introduction to Markdown | [§12](getting-started-vscode.md#12-introduction-to-markdown) |
-| Setup checklist | [§19](getting-started-vscode.md#19-setup-checklist) |
+| GitHub in VS Code: forking, branches, pull requests | [§12](getting-started-vscode.md#12-github-in-vs-code-managing-github-files) |
+| Introduction to Markdown | [§13](getting-started-vscode.md#13-introduction-to-markdown) |
+| VS Code and AI | [§15](getting-started-vscode.md#15-vs-code-and-ai) |
+| Setup checklist | [§21](getting-started-vscode.md#21-setup-checklist) |
 
 ### Previous Cohort References
 
