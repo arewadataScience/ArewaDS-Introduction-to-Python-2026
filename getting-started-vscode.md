@@ -23,11 +23,11 @@ Wherever a step differs by operating system, you will see three tabs of instruct
 7. [Installing uv](#7-installing-uv)
 8. [Installing Python with uv](#8-installing-python-with-uv)
 9. [Creating a virtual environment with uv](#9-creating-a-virtual-environment-with-uv)
-10. [Installing Git](#10-installing-git)
-11. [Setting up GitHub](#11-setting-up-github)
-12. [GitHub in VS Code: managing GitHub files](#12-github-in-vs-code-managing-github-files)
-13. [Introduction to Markdown](#13-introduction-to-markdown)
-14. [VS Code extensions for data science](#14-vs-code-extensions-for-data-science)
+10. [Introduction to Markdown](#10-introduction-to-markdown)
+11. [VS Code extensions for data science](#11-vs-code-extensions-for-data-science)
+12. [Installing Git](#12-installing-git)
+13. [Setting up GitHub](#13-setting-up-github)
+14. [GitHub in VS Code: managing GitHub files](#14-github-in-vs-code-managing-github-files)
 15. [VS Code and AI](#15-vs-code-and-ai)
 16. [Your first project, end to end](#16-your-first-project-end-to-end)
 17. [Pushing your project to GitHub](#17-pushing-your-project-to-github)
@@ -38,7 +38,7 @@ Wherever a step differs by operating system, you will see three tabs of instruct
 
 ---
 
-## 1. What we are building and why
+## 1. What we are building and **why**
 
 ### 1.1 What is VS Code?
 
@@ -171,7 +171,7 @@ The two "Open with Code" options mean you can right-click any folder in File Exp
 
 VS Code opens on a Welcome tab. You will be asked to choose a colour theme. Pick whichever you find comfortable, and do not agonise over it — you can change it at any time with `Ctrl + K` then `Ctrl + T` (`Cmd + K` then `Cmd + T` on macOS).
 
-You may be prompted to install extra tooling. Ignore all prompts for now. We install extensions deliberately in section 14.
+You may be prompted to install extra tooling. Ignore all prompts for now. We install extensions deliberately in section 11.
 
 > **A note on keyboard shortcuts.** From here on, this guide writes shortcuts as `Ctrl + X`. On macOS, read every `Ctrl` as `Cmd` unless stated otherwise — this is true for almost all VS Code shortcuts. Where the two platforms genuinely differ, both are given.
 >
@@ -191,7 +191,7 @@ A vertical strip of icons. The five that matter now, from top to bottom:
 |---|---|---|---|
 | Two pages | **Explorer** | `Ctrl/Cmd + Shift + E` | The files in your current folder |
 | Magnifying glass | **Search** | `Ctrl/Cmd + Shift + F` | Find text across every file |
-| Branching lines | **Source Control** | `Ctrl/Cmd + Shift + G` | Git, covered in section 10 |
+| Branching lines | **Source Control** | `Ctrl/Cmd + Shift + G` | Git, covered in section 12 |
 | Play with a bug | **Run and Debug** | `Ctrl/Cmd + Shift + D` | Step through code line by line |
 | Four squares | **Extensions** | `Ctrl/Cmd + Shift + X` | Install add-ons |
 
@@ -271,7 +271,7 @@ These apply on every platform:
 
 ## 6. Basic command line operations
 
-Section 5 introduced the terminal. This section teaches you to actually use one — the small set of commands you will type dozens of times a day for the rest of the course, and that you will lean on again the moment we introduce Git in section 10.
+Section 5 introduced the terminal. This section teaches you to actually use one — the small set of commands you will type dozens of times a day for the rest of the course, and that you will lean on again the moment we introduce Git in section 12.
 
 ### 6.1 The core idea: you are always "somewhere"
 
@@ -565,289 +565,9 @@ In practice, you will rarely type `uv venv` and activate by hand, because `uv ru
 
 ---
 
-## 10. Installing Git
+## 10. Introduction to Markdown
 
-### 10.1 What Git is, and why it is not optional
-
-Git records the state of your project every time you ask it to. Every recorded state can be returned to. This gives you three things:
-
-- **Undo without limit.** If your analysis worked on Tuesday and is broken on Thursday, you can see precisely what changed, and go back.
-- **An end to file name chaos.** No more `analysis_final.py`, `analysis_final_v2.py`, `analysis_final_REALLY_FINAL.py`. There is one file, with a complete history behind it.
-- **Collaboration.** Two people can work on the same project without overwriting each other's work.
-
-Git is a laboratory notebook for code, and the argument for keeping one is exactly the same, on every operating system.
-
-### 10.2 Download and install
-
-**Windows:** go to **https://git-scm.com/download/win** and choose the **64-bit Git for Windows Setup** installer.
-
-The installer asks many questions. The defaults are sensible, but three screens deserve attention:
-
-1. **Choosing the default editor used by Git.** Select **Use Visual Studio Code as Git's default editor** from the dropdown. The default is Vim, which is a legendary source of panic for beginners who cannot work out how to exit it.
-2. **Adjusting the name of the initial branch.** Select **Override the default branch name for new repositories** and leave it as `main`. This matches GitHub.
-3. **Adjusting your PATH environment.** Keep the recommended middle option, *Git from the command line and also from 3rd-party software*.
-
-Accept the defaults on every other screen and click through to **Install**.
-
-**macOS:** Git is often already present. Check first by running `git --version` in a fresh terminal — if it is missing, macOS will offer to install the **Xcode Command Line Tools**, which include Git. Accept that prompt. Alternatively, install a newer version with **Homebrew** (`brew install git`) if you already use Homebrew; if you don't yet, don't install it just for this — the Command Line Tools version is fine for this course.
-
-**Linux:**
-
-```bash
-# Debian/Ubuntu
-sudo apt update && sudo apt install git
-
-# Fedora
-sudo dnf install git
-```
-
-### 10.3 Restart the terminal and verify
-
-Close and reopen the terminal in VS Code, then run:
-
-```powershell
-git --version
-```
-
-You should see something like `git version 2.4x.x`.
-
-### 10.4 Tell Git who you are
-
-Git labels every change with an author. Set this once, and it applies to all future projects on this machine. Use the same email address that you will use for GitHub. This step and everything below it is identical across Windows, macOS, and Linux.
-
-```powershell
-git config --global user.name "Your Full Name"
-git config --global user.email "your.email@example.com"
-```
-
-Set two further defaults that avoid common annoyances:
-
-```powershell
-git config --global init.defaultBranch main
-git config --global core.autocrlf true
-```
-
-> `core.autocrlf true` is the recommended setting on **Windows**. On **macOS and Linux**, use `git config --global core.autocrlf input` instead — it handles line-ending differences correctly for your platform.
-
-Confirm your settings:
-
-```powershell
-git config --global --list
-```
-
-> **Want to go deeper?** The free online book [Pro Git](https://git-scm.com/book/en/v2), especially chapter 1–2, explains what a commit actually is under the hood — more than this guide needs, but it's the standard reference everyone eventually reads. Explore its first two chapters after today's session if you're interested in why Git works the way it does.
-
----
-
-## 11. Setting up GitHub
-
-### 11.1 Git and GitHub are different things
-
-A frequent point of confusion. **Git** is the program on your computer that tracks changes. **GitHub** is a website that stores copies of Git projects online. Git works perfectly well without GitHub. GitHub without Git would be meaningless.
-
-The relationship is roughly that of a laboratory notebook to the departmental archive.
-
-### 11.2 Create your account
-
-Go to **https://github.com/signup** and register.
-
-Two pieces of advice on the username, because it is difficult to change later and it will appear on your CV:
-
-- Use something professional and close to your real name. `amina-yusuf` or `ayusuf-data` are good. `coolguy2005` is not.
-- Keep it short and easy to type.
-
-Verify your email address when the confirmation arrives.
-
-### 11.3 Enable two-factor authentication
-
-GitHub requires this for all accounts. Go to **Settings**, then **Password and authentication**, and follow the prompts. Use an authenticator app on your phone. Save the recovery codes somewhere safe, because if you lose your phone without them, you lose the account.
-
-### 11.4 Apply for the Student Developer Pack
-
-If you have a university email address, go to **https://education.github.com/pack** and apply. It is free, and it includes GitHub Copilot and a long list of other services.
-
-### 11.5 Connecting VS Code to GitHub
-
-On **Windows**, you do not need to configure SSH keys or personal access tokens by hand — Git for Windows installs **Git Credential Manager**, which handles authentication through your browser. On **macOS and Linux**, Git itself will prompt you to authenticate through the browser the first time you push, using the same credential-helper mechanism (macOS uses the built-in Keychain; most Linux setups will open a browser window via Git's credential manager as well).
-
-To sign VS Code in, click the **Accounts** icon at the bottom of the Activity Bar, choose **Sign in with GitHub**, and complete the process in the browser window that opens. This enables settings sync and smooths every later interaction with GitHub.
-
-The first time you push code (section 17), a browser window will open asking you to authorise. Approve it once, and your machine remembers the credentials.
-
-> **Want to go deeper?** [GitHub Skills](https://skills.github.com/) offers free, interactive, hands-on courses directly on GitHub itself. If interested, try the "Introduction to GitHub" course after this session — it reinforces everything in this section with guided practice.
-
----
-
-## 12. GitHub in VS Code: managing GitHub files
-
-Section 11 created your GitHub account. This section teaches you the actual daily workflow — cloning, forking, staging, committing, branching, pushing, pulling, and opening a pull request — entirely from inside VS Code, with the terminal equivalent alongside every step so you understand what the interface is doing on your behalf. This is the single most important workflow in the course after Python itself: almost every collaborative data science project, published dataset, and open-source library you touch from here on is managed exactly this way.
-
-### 12.1 Three ways a project ends up on your machine
-
-Beginners often blur these together. They are different operations, used in different situations.
-
-| Operation | What it does | When you use it |
-|---|---|---|
-| **`git init`** | Turns an *existing local folder* into a Git repository, from scratch | Starting a brand-new project of your own (this is what `uv init` did for you in section 16) |
-| **`git clone`** | Downloads a *copy of a repository you already have write access to* | Working on your own repository, or one your team added you to |
-| **Fork, then clone** | Makes *your own copy of someone else's repository* on GitHub, then downloads that copy | Contributing to a project you do not have write access to — including this course's own repository |
-
-The rest of this section walks through the clone workflow first, because it is simpler, then the fork workflow, which is what you will use to submit coursework or contribute to open-source projects.
-
-### 12.2 Cloning a repository
-
-**From VS Code:**
-
-1. Open the Command Palette (`Ctrl/Cmd + Shift + P`), type `Git: Clone`, and press Enter.
-2. Paste the repository's URL — copied from the green **Code** button on its GitHub page — and press Enter.
-3. Choose a folder to clone into (your `projects` folder is a sensible default).
-4. When VS Code asks whether to open the cloned repository, choose **Open**.
-
-**From the terminal**, the equivalent is:
-
-```bash
-git clone https://github.com/some-org/some-repo.git
-cd some-repo
-code .
-```
-
-Both routes produce an identical result: a full copy of the repository, including its entire history, connected to GitHub as a **remote** named `origin`.
-
-### 12.3 Forking a repository
-
-A **fork** is your own personal copy of someone else's repository, living under your own GitHub account. You get full write access to your fork even though you have none on the original. This is how open-source contribution — and how you will submit work back to a shared course repository — actually works.
-
-1. On GitHub, open the repository you want to contribute to and click **Fork** (top right).
-2. GitHub creates `your-username/repo-name` under your account. This is your fork.
-3. Clone **your fork**, not the original, using the steps in section 12.2.
-
-You now have two remotes to keep straight:
-
-| Remote name | Points to | Purpose |
-|---|---|---|
-| `origin` | Your fork (`your-username/repo-name`) | Where you push your own commits |
-| `upstream` | The original repository | Where you pull updates from, so your fork does not go stale |
-
-Add the second remote once, from the terminal (VS Code has no menu for this step):
-
-```bash
-git remote add upstream https://github.com/original-owner/repo-name.git
-git remote -v
-```
-
-`git remote -v` lists both remotes and confirms the URLs are correct.
-
-To bring your fork up to date with the original repository later:
-
-```bash
-git fetch upstream
-git merge upstream/main
-```
-
-### 12.4 The Source Control panel, properly explained
-
-Open it with `Ctrl/Cmd + Shift + G`, or click the branching-lines icon in the Activity Bar (section 4.1). Four things live here, and matching each to its terminal command removes the mystery:
-
-| In the Source Control panel | Terminal equivalent | Meaning |
-|---|---|---|
-| A file listed under **Changes** | shown by `git status` | Modified since the last commit, not yet staged |
-| Clicking **+** next to a file (staging it) | `git add filename` | Marked to be included in the next commit |
-| Typing a message and clicking the **✓ Commit** button | `git commit -m "message"` | Permanently records the staged changes |
-| Clicking **Sync Changes** (or the cloud icon with numbers) | `git push` then `git pull` | Uploads your commits, then downloads anyone else's |
-
-The numbers on the Sync Changes button matter: an upward arrow with a number shows commits you have not yet pushed; a downward arrow shows commits on GitHub you do not yet have locally.
-
-### 12.5 The daily cycle, side by side
-
-| Step | VS Code UI | Terminal |
-|---|---|---|
-| See what changed | Source Control panel, **Changes** list | `git status` |
-| Review a specific change | Click the filename to open a diff view | `git diff filename` |
-| Stage everything | Hover **Changes**, click **+** | `git add .` |
-| Commit | Type a message, click **✓** | `git commit -m "message"` |
-| Push | Click **Sync Changes** | `git push` |
-| Pull | Click **Sync Changes** | `git pull` |
-
-Neither route is "more correct." The UI is faster for reviewing diffs visually; the terminal is faster once the commands are muscle memory, and it is what you will read in almost every tutorial and Stack Overflow answer. Learn both — you will use the UI most days and the terminal when something needs a command the UI does not expose, such as the `remote add` step in section 12.3.
-
-### 12.6 Working with branches
-
-A **branch** is an independent line of work — a way to try a change without touching the working version until you are ready. Every repository has a default branch, almost always called `main`.
-
-**Creating and switching branches in VS Code:**
-
-1. Click the branch name shown in the bottom-left corner of the status bar (it reads `main` by default).
-2. Choose **Create new branch...**, and give it a short, descriptive name — `add-loop-examples`, not `patch1`.
-3. VS Code switches you onto the new branch immediately. The status bar updates to show its name.
-
-The terminal equivalent:
-
-```bash
-git checkout -b add-loop-examples
-```
-
-Make your changes, stage, and commit as usual (section 12.5) — everything you commit now belongs to this branch, not to `main`, until you merge it. When you push a brand-new branch for the first time, VS Code's Source Control panel offers a **Publish Branch** button — the terminal equivalent is:
-
-```bash
-git push -u origin add-loop-examples
-```
-
-Switch back to `main` at any time by clicking the branch name in the status bar again and selecting `main`.
-
-> **Why bother with branches for a solo learning project?** Because the habit is the point. The moment you work with anyone else — a group project, a research supervisor, an open-source maintainer — commits land on branches first and `main` stays stable and working at all times. Building the habit now, while the stakes are low, means it costs you nothing later.
-
-### 12.7 Handling merge conflicts
-
-A **merge conflict** happens when Git cannot automatically combine two sets of changes to the same lines of the same file — most often because you and a collaborator (or you and your past self, on two different branches) edited the same place differently. This is not an error to fear; it is Git correctly refusing to guess.
-
-When a conflict occurs, VS Code marks the affected file in the Source Control panel and opens it with a built-in **merge editor** showing:
-
-- **Current Change** — what your branch has
-- **Incoming Change** — what you are merging in
-- Buttons to **Accept Current**, **Accept Incoming**, **Accept Both**, or edit the result by hand
-
-Work through each conflicted section, choose the correct outcome (or write it yourself, combining both), save the file, then stage and commit as normal — the commit itself records the conflict as resolved. If you would rather see the raw markers VS Code is interpreting, they look like this in the file:
-
-```
-<<<<<<< HEAD
-your version of the line
-=======
-their version of the line
->>>>>>> incoming-branch-name
-```
-
-Delete the marker lines (`<<<<<<<`, `=======`, `>>>>>>>`) and keep only the content you actually want, on every conflict, before committing.
-
-### 12.8 Opening and reviewing a pull request without leaving VS Code
-
-A **pull request** (PR) is a request to merge your branch (or your fork) into someone else's repository, with a place for discussion and review before it happens. This is how you submit coursework to a shared class repository, and how essentially all open-source contribution works.
-
-With the **GitHub Pull Requests** extension installed (section 14), from the fork-and-branch state you built in sections 12.3 and 12.6:
-
-1. Push your branch (section 12.6).
-2. Open the **GitHub Pull Requests** icon in the Activity Bar.
-3. Click **Create Pull Request**, confirm the base repository/branch (usually the original repository's `main`) and your branch, write a short description of what changed and why, and submit.
-4. Reviewers can comment directly on your lines of code; you will see their comments in the same panel and can reply or push follow-up commits to the same branch, which update the PR automatically.
-
-The browser works identically if you prefer it — click **Compare & pull request** on your fork's GitHub page after pushing a branch — but doing it in VS Code means you never lose your place in the editor.
-
-### 12.9 Practice exercise
-
-1. Fork any small public repository (ask your instructor for one, or use this course's repository).
-2. Clone your fork (section 12.2), and add the original as `upstream` (section 12.3).
-3. Create a new branch with a descriptive name (section 12.6).
-4. Make one small, genuine improvement — fix a typo, clarify a sentence, add a missing example.
-5. Stage, commit with a clear message, and push the branch.
-6. Open a pull request back to the original repository (section 12.8), describing what you changed and why.
-7. Whether or not it is merged, you have now completed the exact workflow used to contribute to real open-source projects.
-
-> **Want to go deeper?** [GitHub's own docs on collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) cover review etiquette and conventions this section only touches on. If interested, explore a real open-source project's "good first issue" label after this session — [goodfirstissue.dev](https://goodfirstissue.dev/) curates them across languages.
-
----
-
-## 13. Introduction to Markdown
-
-### 13.1 What Markdown is, and why a data scientist needs it
+### 10.1 What Markdown is, and why a data scientist needs it
 
 **Markdown** is a way of formatting text — headings, bold, lists, links, images, tables, code — using plain, readable symbols instead of a word processor's menus. You have been reading it for the last eleven sections: this entire guide is a Markdown file.
 
@@ -860,7 +580,7 @@ You need it because it is the *lingua franca* of the tools around your code, not
 
 In short: your code speaks Python, but you explain your code in Markdown. Both are core skills for this course.
 
-### 13.2 The essentials
+### 10.2 The essentials
 
 You need remarkably few symbols to be productive. Type the left-hand column exactly as shown, including blank lines around block elements (headings, lists, images), and it renders as the right-hand column describes.
 
@@ -929,13 +649,13 @@ def greet(name):
 ---
 ```
 
-### 13.3 Where to write and preview it
+### 10.3 Where to write and preview it
 
-- **In VS Code:** open any `.md` file, then press `Ctrl/Cmd + Shift + V` to open a live preview beside the raw text. The **Markdown All in One** extension (section 14) adds table formatting, list auto-continuation, and a table of contents generator.
+- **In VS Code:** open any `.md` file, then press `Ctrl/Cmd + Shift + V` to open a live preview beside the raw text. The **Markdown All in One** extension (section 11) adds table formatting, list auto-continuation, and a table of contents generator.
 - **On GitHub:** every `.md` file is rendered automatically when viewed in a repository — you never need to convert it to anything.
 - **In a Jupyter Notebook:** change a cell's type to *Markdown* (in VS Code's notebook toolbar, or with the keyboard shortcut `M` when a cell is selected but not being edited), then run the cell with `Shift + Enter` to render it.
 
-### 13.4 A worked example: a project README
+### 10.4 A worked example: a project README
 
 Every project you build from section 16 onward should have a `README.md` explaining what it is. Here is a minimal, honest one for a first project:
 
@@ -964,7 +684,7 @@ Jane Student — Arewa DataScience Academy, 2026
 
 Notice what this README does *not* do: it does not apologise, pad itself with filler, or promise more than the project delivers. A README's job is to let a stranger understand your project in under a minute.
 
-### 13.5 Practice exercise
+### 10.5 Practice exercise
 
 Create a file called `profile-draft.md` inside your `projects` folder and write a short personal data science profile using at least:
 
@@ -980,9 +700,9 @@ Open it with `Ctrl/Cmd + Shift + V` in VS Code and check that everything renders
 
 ---
 
-## 14. VS Code extensions for data science
+## 11. VS Code extensions for data science
 
-### 14.1 Installing from the terminal
+### 11.1 Installing from the terminal
 
 Extensions can be installed by clicking through the Extensions panel, but it is faster and far more reproducible to use the terminal. This command is identical on Windows, macOS, and Linux. Paste this block into your VS Code terminal:
 
@@ -1002,7 +722,7 @@ code --install-extension tamasfe.even-better-toml
 
 Restart VS Code when the installations finish.
 
-### 14.2 What each one does
+### 11.2 What each one does
 
 **Essential**
 
@@ -1022,12 +742,12 @@ Restart VS Code when the installations finish.
 | GitHub Pull Requests | `GitHub.vscode-pull-request-github` | Review and manage pull requests without leaving the editor |
 | Rainbow CSV | `mechatroner.rainbow-csv` | Colours CSV columns so raw data files are readable |
 | Error Lens | `usernamehw.errorlens` | Displays errors inline rather than hiding them in a panel |
-| Markdown All in One | `yzhang.markdown-all-in-one` | Preview, table formatting, and shortcuts for the Markdown from section 13 |
+| Markdown All in One | `yzhang.markdown-all-in-one` | Preview, table formatting, and shortcuts for the Markdown from section 10 |
 | Even Better TOML | `tamasfe.even-better-toml` | Syntax support for `pyproject.toml`, which uv creates |
 
 **A caution.** Extensions are tempting to collect. Each one consumes memory and startup time, and a heavily loaded VS Code becomes sluggish on a modest laptop. Install the list above, use it for a term, and add further extensions only when you have felt the specific need.
 
-### 14.3 A few settings worth changing
+### 11.3 A few settings worth changing
 
 Open the Command Palette, type `Preferences: Open User Settings (JSON)`, and add the following inside the outer braces. This file and its contents are identical across operating systems.
 
@@ -1048,6 +768,286 @@ Open the Command Palette, type `Preferences: Open User Settings (JSON)`, and add
 These format your code on every save, mark the conventional line length, save your work automatically, and keep enormous notebook outputs from swamping the screen.
 
 > **Want to go deeper?** [Ruff's documentation](https://docs.astral.sh/ruff/) explains the specific style rules it enforces, and the [Data Wrangler docs](https://code.visualstudio.com/docs/datascience/data-wrangler) go further into its cleaning features than this list does. If interested, explore both after this session, once you have real data to try them on.
+
+---
+
+## 12. Installing Git
+
+### 12.1 What Git is, and why it is not optional
+
+Git records the state of your project every time you ask it to. Every recorded state can be returned to. This gives you three things:
+
+- **Undo without limit.** If your analysis worked on Tuesday and is broken on Thursday, you can see precisely what changed, and go back.
+- **An end to file name chaos.** No more `analysis_final.py`, `analysis_final_v2.py`, `analysis_final_REALLY_FINAL.py`. There is one file, with a complete history behind it.
+- **Collaboration.** Two people can work on the same project without overwriting each other's work.
+
+Git is a laboratory notebook for code, and the argument for keeping one is exactly the same, on every operating system.
+
+### 12.2 Download and install
+
+**Windows:** go to **https://git-scm.com/download/win** and choose the **64-bit Git for Windows Setup** installer.
+
+The installer asks many questions. The defaults are sensible, but three screens deserve attention:
+
+1. **Choosing the default editor used by Git.** Select **Use Visual Studio Code as Git's default editor** from the dropdown. The default is Vim, which is a legendary source of panic for beginners who cannot work out how to exit it.
+2. **Adjusting the name of the initial branch.** Select **Override the default branch name for new repositories** and leave it as `main`. This matches GitHub.
+3. **Adjusting your PATH environment.** Keep the recommended middle option, *Git from the command line and also from 3rd-party software*.
+
+Accept the defaults on every other screen and click through to **Install**.
+
+**macOS:** Git is often already present. Check first by running `git --version` in a fresh terminal — if it is missing, macOS will offer to install the **Xcode Command Line Tools**, which include Git. Accept that prompt. Alternatively, install a newer version with **Homebrew** (`brew install git`) if you already use Homebrew; if you don't yet, don't install it just for this — the Command Line Tools version is fine for this course.
+
+**Linux:**
+
+```bash
+# Debian/Ubuntu
+sudo apt update && sudo apt install git
+
+# Fedora
+sudo dnf install git
+```
+
+### 12.3 Restart the terminal and verify
+
+Close and reopen the terminal in VS Code, then run:
+
+```powershell
+git --version
+```
+
+You should see something like `git version 2.4x.x`.
+
+### 12.4 Tell Git who you are
+
+Git labels every change with an author. Set this once, and it applies to all future projects on this machine. Use the same email address that you will use for GitHub. This step and everything below it is identical across Windows, macOS, and Linux.
+
+```powershell
+git config --global user.name "Your Full Name"
+git config --global user.email "your.email@example.com"
+```
+
+Set two further defaults that avoid common annoyances:
+
+```powershell
+git config --global init.defaultBranch main
+git config --global core.autocrlf true
+```
+
+> `core.autocrlf true` is the recommended setting on **Windows**. On **macOS and Linux**, use `git config --global core.autocrlf input` instead — it handles line-ending differences correctly for your platform.
+
+Confirm your settings:
+
+```powershell
+git config --global --list
+```
+
+> **Want to go deeper?** The free online book [Pro Git](https://git-scm.com/book/en/v2), especially chapter 1–2, explains what a commit actually is under the hood — more than this guide needs, but it's the standard reference everyone eventually reads. Explore its first two chapters after today's session if you're interested in why Git works the way it does.
+
+---
+
+## 13. Setting up GitHub
+
+### 13.1 Git and GitHub are different things
+
+A frequent point of confusion. **Git** is the program on your computer that tracks changes. **GitHub** is a website that stores copies of Git projects online. Git works perfectly well without GitHub. GitHub without Git would be meaningless.
+
+The relationship is roughly that of a laboratory notebook to the departmental archive.
+
+### 13.2 Create your account
+
+Go to **https://github.com/signup** and register.
+
+Two pieces of advice on the username, because it is difficult to change later and it will appear on your CV:
+
+- Use something professional and close to your real name. `amina-yusuf` or `ayusuf-data` are good. `coolguy2005` is not.
+- Keep it short and easy to type.
+
+Verify your email address when the confirmation arrives.
+
+### 13.3 Enable two-factor authentication
+
+GitHub requires this for all accounts. Go to **Settings**, then **Password and authentication**, and follow the prompts. Use an authenticator app on your phone. Save the recovery codes somewhere safe, because if you lose your phone without them, you lose the account.
+
+### 13.4 Apply for the Student Developer Pack
+
+If you have a university email address, go to **https://education.github.com/pack** and apply. It is free, and it includes GitHub Copilot and a long list of other services.
+
+### 13.5 Connecting VS Code to GitHub
+
+On **Windows**, you do not need to configure SSH keys or personal access tokens by hand — Git for Windows installs **Git Credential Manager**, which handles authentication through your browser. On **macOS and Linux**, Git itself will prompt you to authenticate through the browser the first time you push, using the same credential-helper mechanism (macOS uses the built-in Keychain; most Linux setups will open a browser window via Git's credential manager as well).
+
+To sign VS Code in, click the **Accounts** icon at the bottom of the Activity Bar, choose **Sign in with GitHub**, and complete the process in the browser window that opens. This enables settings sync and smooths every later interaction with GitHub.
+
+The first time you push code (section 17), a browser window will open asking you to authorise. Approve it once, and your machine remembers the credentials.
+
+> **Want to go deeper?** [GitHub Skills](https://skills.github.com/) offers free, interactive, hands-on courses directly on GitHub itself. If interested, try the "Introduction to GitHub" course after this session — it reinforces everything in this section with guided practice.
+
+---
+
+## 14. GitHub in VS Code: managing GitHub files
+
+Section 13 created your GitHub account. This section teaches you the actual daily workflow — cloning, forking, staging, committing, branching, pushing, pulling, and opening a pull request — entirely from inside VS Code, with the terminal equivalent alongside every step so you understand what the interface is doing on your behalf. This is the single most important workflow in the course after Python itself: almost every collaborative data science project, published dataset, and open-source library you touch from here on is managed exactly this way.
+
+### 14.1 Three ways a project ends up on your machine
+
+Beginners often blur these together. They are different operations, used in different situations.
+
+| Operation | What it does | When you use it |
+|---|---|---|
+| **`git init`** | Turns an *existing local folder* into a Git repository, from scratch | Starting a brand-new project of your own (this is what `uv init` did for you in section 16) |
+| **`git clone`** | Downloads a *copy of a repository you already have write access to* | Working on your own repository, or one your team added you to |
+| **Fork, then clone** | Makes *your own copy of someone else's repository* on GitHub, then downloads that copy | Contributing to a project you do not have write access to — including this course's own repository |
+
+The rest of this section walks through the clone workflow first, because it is simpler, then the fork workflow, which is what you will use to submit coursework or contribute to open-source projects.
+
+### 14.2 Cloning a repository
+
+**From VS Code:**
+
+1. Open the Command Palette (`Ctrl/Cmd + Shift + P`), type `Git: Clone`, and press Enter.
+2. Paste the repository's URL — copied from the green **Code** button on its GitHub page — and press Enter.
+3. Choose a folder to clone into (your `projects` folder is a sensible default).
+4. When VS Code asks whether to open the cloned repository, choose **Open**.
+
+**From the terminal**, the equivalent is:
+
+```bash
+git clone https://github.com/some-org/some-repo.git
+cd some-repo
+code .
+```
+
+Both routes produce an identical result: a full copy of the repository, including its entire history, connected to GitHub as a **remote** named `origin`.
+
+### 14.3 Forking a repository
+
+A **fork** is your own personal copy of someone else's repository, living under your own GitHub account. You get full write access to your fork even though you have none on the original. This is how open-source contribution — and how you will submit work back to a shared course repository — actually works.
+
+1. On GitHub, open the repository you want to contribute to and click **Fork** (top right).
+2. GitHub creates `your-username/repo-name` under your account. This is your fork.
+3. Clone **your fork**, not the original, using the steps in section 14.2.
+
+You now have two remotes to keep straight:
+
+| Remote name | Points to | Purpose |
+|---|---|---|
+| `origin` | Your fork (`your-username/repo-name`) | Where you push your own commits |
+| `upstream` | The original repository | Where you pull updates from, so your fork does not go stale |
+
+Add the second remote once, from the terminal (VS Code has no menu for this step):
+
+```bash
+git remote add upstream https://github.com/original-owner/repo-name.git
+git remote -v
+```
+
+`git remote -v` lists both remotes and confirms the URLs are correct.
+
+To bring your fork up to date with the original repository later:
+
+```bash
+git fetch upstream
+git merge upstream/main
+```
+
+### 14.4 The Source Control panel, properly explained
+
+Open it with `Ctrl/Cmd + Shift + G`, or click the branching-lines icon in the Activity Bar (section 4.1). Four things live here, and matching each to its terminal command removes the mystery:
+
+| In the Source Control panel | Terminal equivalent | Meaning |
+|---|---|---|
+| A file listed under **Changes** | shown by `git status` | Modified since the last commit, not yet staged |
+| Clicking **+** next to a file (staging it) | `git add filename` | Marked to be included in the next commit |
+| Typing a message and clicking the **✓ Commit** button | `git commit -m "message"` | Permanently records the staged changes |
+| Clicking **Sync Changes** (or the cloud icon with numbers) | `git push` then `git pull` | Uploads your commits, then downloads anyone else's |
+
+The numbers on the Sync Changes button matter: an upward arrow with a number shows commits you have not yet pushed; a downward arrow shows commits on GitHub you do not yet have locally.
+
+### 14.5 The daily cycle, side by side
+
+| Step | VS Code UI | Terminal |
+|---|---|---|
+| See what changed | Source Control panel, **Changes** list | `git status` |
+| Review a specific change | Click the filename to open a diff view | `git diff filename` |
+| Stage everything | Hover **Changes**, click **+** | `git add .` |
+| Commit | Type a message, click **✓** | `git commit -m "message"` |
+| Push | Click **Sync Changes** | `git push` |
+| Pull | Click **Sync Changes** | `git pull` |
+
+Neither route is "more correct." The UI is faster for reviewing diffs visually; the terminal is faster once the commands are muscle memory, and it is what you will read in almost every tutorial and Stack Overflow answer. Learn both — you will use the UI most days and the terminal when something needs a command the UI does not expose, such as the `remote add` step in section 14.3.
+
+### 14.6 Working with branches
+
+A **branch** is an independent line of work — a way to try a change without touching the working version until you are ready. Every repository has a default branch, almost always called `main`.
+
+**Creating and switching branches in VS Code:**
+
+1. Click the branch name shown in the bottom-left corner of the status bar (it reads `main` by default).
+2. Choose **Create new branch...**, and give it a short, descriptive name — `add-loop-examples`, not `patch1`.
+3. VS Code switches you onto the new branch immediately. The status bar updates to show its name.
+
+The terminal equivalent:
+
+```bash
+git checkout -b add-loop-examples
+```
+
+Make your changes, stage, and commit as usual (section 14.5) — everything you commit now belongs to this branch, not to `main`, until you merge it. When you push a brand-new branch for the first time, VS Code's Source Control panel offers a **Publish Branch** button — the terminal equivalent is:
+
+```bash
+git push -u origin add-loop-examples
+```
+
+Switch back to `main` at any time by clicking the branch name in the status bar again and selecting `main`.
+
+> **Why bother with branches for a solo learning project?** Because the habit is the point. The moment you work with anyone else — a group project, a research supervisor, an open-source maintainer — commits land on branches first and `main` stays stable and working at all times. Building the habit now, while the stakes are low, means it costs you nothing later.
+
+### 14.7 Handling merge conflicts
+
+A **merge conflict** happens when Git cannot automatically combine two sets of changes to the same lines of the same file — most often because you and a collaborator (or you and your past self, on two different branches) edited the same place differently. This is not an error to fear; it is Git correctly refusing to guess.
+
+When a conflict occurs, VS Code marks the affected file in the Source Control panel and opens it with a built-in **merge editor** showing:
+
+- **Current Change** — what your branch has
+- **Incoming Change** — what you are merging in
+- Buttons to **Accept Current**, **Accept Incoming**, **Accept Both**, or edit the result by hand
+
+Work through each conflicted section, choose the correct outcome (or write it yourself, combining both), save the file, then stage and commit as normal — the commit itself records the conflict as resolved. If you would rather see the raw markers VS Code is interpreting, they look like this in the file:
+
+```
+<<<<<<< HEAD
+your version of the line
+=======
+their version of the line
+>>>>>>> incoming-branch-name
+```
+
+Delete the marker lines (`<<<<<<<`, `=======`, `>>>>>>>`) and keep only the content you actually want, on every conflict, before committing.
+
+### 14.8 Opening and reviewing a pull request without leaving VS Code
+
+A **pull request** (PR) is a request to merge your branch (or your fork) into someone else's repository, with a place for discussion and review before it happens. This is how you submit coursework to a shared class repository, and how essentially all open-source contribution works.
+
+With the **GitHub Pull Requests** extension installed (section 11), from the fork-and-branch state you built in sections 14.3 and 14.6:
+
+1. Push your branch (section 14.6).
+2. Open the **GitHub Pull Requests** icon in the Activity Bar.
+3. Click **Create Pull Request**, confirm the base repository/branch (usually the original repository's `main`) and your branch, write a short description of what changed and why, and submit.
+4. Reviewers can comment directly on your lines of code; you will see their comments in the same panel and can reply or push follow-up commits to the same branch, which update the PR automatically.
+
+The browser works identically if you prefer it — click **Compare & pull request** on your fork's GitHub page after pushing a branch — but doing it in VS Code means you never lose your place in the editor.
+
+### 14.9 Practice exercise
+
+1. Fork any small public repository (ask your instructor for one, or use this course's repository).
+2. Clone your fork (section 14.2), and add the original as `upstream` (section 14.3).
+3. Create a new branch with a descriptive name (section 14.6).
+4. Make one small, genuine improvement — fix a typo, clarify a sentence, add a missing example.
+5. Stage, commit with a clear message, and push the branch.
+6. Open a pull request back to the original repository (section 14.8), describing what you changed and why.
+7. Whether or not it is merged, you have now completed the exact workflow used to contribute to real open-source projects.
+
+> **Want to go deeper?** [GitHub's own docs on collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) cover review etiquette and conventions this section only touches on. If interested, explore a real open-source project's "good first issue" label after this session — [goodfirstissue.dev](https://goodfirstissue.dev/) curates them across languages.
 
 ---
 
@@ -1074,12 +1074,12 @@ You are learning Python at a moment when the editor itself can write, explain, a
 
 | Tool | Type | Notes |
 |---|---|---|
-| **GitHub Copilot** (`GitHub.copilot` + `GitHub.copilot-chat`) | Inline completion + chat | The most widely used option, built directly into VS Code. **Free for verified students** through the GitHub Student Developer Pack (section 11.4) — apply for that before paying for anything. |
+| **GitHub Copilot** (`GitHub.copilot` + `GitHub.copilot-chat`) | Inline completion + chat | The most widely used option, built directly into VS Code. **Free for verified students** through the GitHub Student Developer Pack (section 13.4) — apply for that before paying for anything. |
 | **Claude Code** | Terminal-native AI agent, with a VS Code companion extension | Strong at reasoning through multi-step tasks, explaining unfamiliar codebases, and larger refactors. Ask your instructor about classroom/education access before purchasing an individual plan. |
 | **Continue** (`Continue.continue`) | Open-source chat + completion | Lets you plug in different AI models, including free or lower-cost ones, if you want more control than a single vendor's extension gives you. |
-| **Error Lens** (`usernamehw.errorlens`, from section 14) | Not AI, but pairs well with it | Surfaces the exact error inline, which is exactly the text you will paste into an AI chat when you need help. |
+| **Error Lens** (`usernamehw.errorlens`, from section 11) | Not AI, but pairs well with it | Surfaces the exact error inline, which is exactly the text you will paste into an AI chat when you need help. |
 
-Install whichever chat/completion extension you choose the same way as section 14.1:
+Install whichever chat/completion extension you choose the same way as section 11.1:
 
 ```powershell
 code --install-extension GitHub.copilot
@@ -1130,7 +1130,7 @@ code .
 |---|---|
 | `pyproject.toml` | The project description, including its dependencies |
 | `main.py` | A starter script |
-| `README.md` | Documentation for human readers — this is the Markdown file from section 13 |
+| `README.md` | Documentation for human readers — this is the Markdown file from section 10 |
 | `.python-version` | Records which Python version this project uses |
 | `.gitignore` | Lists files Git should ignore |
 
@@ -1181,7 +1181,7 @@ You should see the summary tables printed, and a new file `iris_scatter.png` in 
 
 ### 16.5 Work in a notebook
 
-Scripts are right for pipelines you will run repeatedly. Notebooks are right for exploration, where you want to see the result of each step before deciding on the next, mixing code cells with the Markdown text cells from section 13.
+Scripts are right for pipelines you will run repeatedly. Notebooks are right for exploration, where you want to see the result of each step before deciding on the next, mixing code cells with the Markdown text cells from section 10.
 
 1. Create a new file called `exploration.ipynb`. In the Explorer panel, click the new file icon and type the name including the extension.
 2. The notebook interface opens.
@@ -1200,7 +1200,7 @@ iris.head()
 
 The dataframe appears below the cell. In the output, look for the **Open in Data Wrangler** button, which gives you a spreadsheet-style view for filtering, sorting, and cleaning, while writing the corresponding pandas code for you.
 
-7. Add a new cell above it, change its type to **Markdown**, and write a one-line heading describing what the notebook does — put section 13's skills to immediate use.
+7. Add a new cell above it, change its type to **Markdown**, and write a one-line heading describing what the notebook does — put section 10's skills to immediate use.
 
 ### 16.6 Commands you will use every day
 
@@ -1289,9 +1289,9 @@ Commit whenever you finish a coherent piece of work, which in practice means sev
 
 ### 17.5 Practice exercise
 
-Update your `README.md` (section 13's skills again) to properly describe the Iris project — what it does, how to run it, and what the figure shows — then commit and push that single change with a clear message. This is the smallest possible complete example of the daily rhythm you will repeat for the rest of the course.
+Update your `README.md` (section 10's skills again) to properly describe the Iris project — what it does, how to run it, and what the figure shows — then commit and push that single change with a clear message. This is the smallest possible complete example of the daily rhythm you will repeat for the rest of the course.
 
-> **Want to go deeper?** [GitHub's guide to writing a great README](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) has more structure than section 13.4's minimal example. If interested, explore a few well-known open-source projects' READMEs after this session and notice what they choose to include and leave out.
+> **Want to go deeper?** [GitHub's guide to writing a great README](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) has more structure than section 10.4's minimal example. If interested, explore a few well-known open-source projects' READMEs after this session and notice what they choose to include and leave out.
 
 ---
 
@@ -1519,10 +1519,10 @@ Confirm each item before the next session. Where a check is a command, run it in
 - [ ] `git config --global --list` shows your name and email
 - [ ] GitHub account created, with two-factor authentication enabled
 - [ ] VS Code signed in to GitHub
-- [ ] You can clone a repository, and you can fork one and add it as `upstream` (section 12.2–12.3)
-- [ ] You have created a branch, made a commit, and pushed it, either through the Source Control panel or the terminal (section 12.5–12.6)
-- [ ] You can write and preview basic Markdown — headings, lists, links, code blocks, a table (section 13.5)
-- [ ] All extensions from section 14.1 installed
+- [ ] You can clone a repository, and you can fork one and add it as `upstream` (section 14.2–14.3)
+- [ ] You have created a branch, made a commit, and pushed it, either through the Source Control panel or the terminal (section 14.5–14.6)
+- [ ] You can write and preview basic Markdown — headings, lists, links, code blocks, a table (section 10.5)
+- [ ] All extensions from section 11.1 installed
 - [ ] An AI chat/completion extension installed and tried at least once (section 15.5)
 - [ ] The `iris-analysis` project runs and produces `iris_scatter.png`
 - [ ] A notebook runs a cell using the `.venv` kernel, including at least one Markdown cell
