@@ -1,7 +1,7 @@
 <div align="center">
 
 # Fundamentals of Python — First Programs
-### Arewa DataScience Academy · Python Fundamentals
+### Arewa DataScience Academy · Python Fundamentals · Cohort 4
 
 **Based on:** *Fundamentals of Python: First Programs* (3rd ed.) — Kenneth A. Lambert
 
@@ -72,7 +72,9 @@ No prior coding, command-line, or math background is assumed. If you can use a w
 
 ## Setup and Installation
 
-### 2026 Cohort: Getting Started Guide
+### Cohort 4: Getting Started Guide
+
+**Presented by:** Dr Shamsuddeen Muhammad
 
 This cohort's setup is a single, self-contained guide: **[Getting Started with VS Code for Data Science](getting-started-vscode.md)**. It replaces the separate per-topic guides used by earlier cohorts with one walkthrough covering Windows, macOS, and Linux side by side.
 
