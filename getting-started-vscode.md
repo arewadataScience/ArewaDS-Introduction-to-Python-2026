@@ -74,6 +74,8 @@ You may have heard of Anaconda or conda. They are widely used in scientific comp
 
 Do not install both and mix them in the same project. Pick one per project.
 
+> **Want to go deeper?** Read [VS Code's own "Why VS Code" page](https://code.visualstudio.com/docs/editor/whyvscode) and the [uv documentation](https://docs.astral.sh/uv/) for the reasoning behind these tool choices. If you're curious, spend ten minutes after this session comparing uv's own pitch against conda's — it's a good exercise in reading two tools' documentation critically rather than taking either one's word for it.
+
 ---
 
 ## 2. Before you begin
@@ -119,6 +121,8 @@ Replace `YourName` with your username. On macOS and Linux, this path is more com
 > **Important.** Do not put your code inside a folder that is continuously synced by a cloud service — **OneDrive**, **iCloud Drive**, **Dropbox**, or **Google Drive** are the common offenders, along with **Desktop** and **Documents** when those are set to sync. These services synchronise files continuously, and they will fight with Python and Git over the thousands of small files a project creates. Symptoms include files that mysteriously vanish, environments that break overnight, and Git repositories that corrupt themselves. Keep your `projects` folder outside any synced location.
 
 Also avoid spaces, accents, and special characters in folder and file names. `heart-disease-analysis` is a good name. `My Project (final) 2!` will cause trouble on every operating system.
+
+> **Want to go deeper?** [GitHub's guidance on ignoring files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files) explains why certain folders should never be tracked by Git, which connects to the cloud-sync warning above. If interested, explore how your OS actually handles the special characters this section warns against — a small rabbit hole, but a useful one.
 
 ---
 
@@ -170,6 +174,8 @@ VS Code opens on a Welcome tab. You will be asked to choose a colour theme. Pick
 You may be prompted to install extra tooling. Ignore all prompts for now. We install extensions deliberately in section 14.
 
 > **A note on keyboard shortcuts.** From here on, this guide writes shortcuts as `Ctrl + X`. On macOS, read every `Ctrl` as `Cmd` unless stated otherwise — this is true for almost all VS Code shortcuts. Where the two platforms genuinely differ, both are given.
+>
+> **Want to go deeper?** The [VS Code Setup docs](https://code.visualstudio.com/docs/setup/setup-overview) cover platform-specific install details this guide simplifies. If interested, explore VS Code's built-in Settings Sync (Command Palette → "Settings Sync: Turn On") after this session, so your theme and extensions follow you to any machine you log into.
 
 ---
 
@@ -215,6 +221,8 @@ A search box appears at the top. Everything VS Code can do is in here and can be
 
 VS Code works on **folders**, not loose files. Go to **File**, then **Open Folder** (macOS: **Open...**), and choose your `projects` folder from section 2.4. Everything in the Explorer panel is now relative to that folder, and the terminal will open inside it too.
 
+> **Want to go deeper?** The [VS Code User Interface docs](https://code.visualstudio.com/docs/getstarted/userinterface) go further into every panel than this tour does. If interested, try the interactive [VS Code Tips and Tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks) walkthrough after this session — most of it will already feel familiar.
+
 ---
 
 ## 5. The integrated terminal
@@ -245,6 +253,8 @@ Confirm what you have. On Windows, the dropdown on the right of the terminal pan
 
 Avoid **Command Prompt (cmd)** on Windows — it is older and more limited than PowerShell. You may also encounter **Git Bash**, which arrives with Git and uses Linux-style commands; it is useful later but not our default.
 
+> **Want to go deeper?** If you're curious why shells differ at all, [Microsoft's PowerShell overview](https://learn.microsoft.com/en-us/powershell/scripting/overview) and the [Zsh manual](https://zsh.sourceforge.io/Doc/) are worth a skim. Explore this after the session if the "which shell" question interests you — it isn't essential for the course itself.
+
 ### 5.4 Terminal habits worth forming now
 
 These apply on every platform:
@@ -254,6 +264,8 @@ These apply on every platform:
 - Press **Tab** to complete a half-typed file or folder name.
 - Press `Ctrl + C` to interrupt a command that is stuck or running too long.
 - Clear a cluttered screen: `cls` on PowerShell, `clear` on zsh/bash (or `Ctrl + L` on either).
+
+> **Want to go deeper?** [The Missing Semester of Your CS Education (MIT)](https://missing.csail.mit.edu/2020/course-shell/) is a superb free course on the command line, aimed at exactly this stage. If interested, work through its first lecture after today's session — it goes well beyond what this guide needs but pays off for years.
 
 ---
 
@@ -382,6 +394,8 @@ Before moving on, do this from scratch in your terminal without looking back at 
 
 If you can do all eight steps without hesitation, you have the terminal fluency this course requires. If you got stuck, repeat it — this is muscle memory, not theory.
 
+> **Want to go deeper?** [ExplainShell](https://explainshell.com/) breaks down any command you paste into it, flag by flag — useful whenever a tutorial shows you a command you don't fully understand. Explore a few of today's commands there if you're interested in what each flag actually does.
+
 ---
 
 ## 7. Installing uv
@@ -426,6 +440,8 @@ uv self update
 
 Run this every few weeks, on any operating system.
 
+> **Want to go deeper?** The [uv documentation](https://docs.astral.sh/uv/) is unusually readable for a tool's docs — the ["Why uv"](https://docs.astral.sh/uv/#highlights) page explains the design decisions behind it. If interested, read it after this session to understand what uv is actually doing under the hood rather than just trusting it.
+
 ---
 
 ## 8. Installing Python with uv
@@ -467,6 +483,8 @@ Suppose your first project needs pandas version 1.5, and a project you start nex
 A **virtual environment** is a private box of libraries belonging to one project and nothing else. Each project gets its own. They never interfere with each other.
 
 With uv, the environment lives in a folder called `.venv` inside your project, and uv creates and maintains it for you automatically. Section 9 walks through building one by hand so you understand exactly what is happening before uv starts doing it silently on your behalf.
+
+> **Want to go deeper?** The [Python Packaging User Guide's section on virtual environments](https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments) explains the general concept independent of any one tool. If interested, read it after this session to see how the idea predates uv and is common to nearly every language ecosystem, not just Python's.
 
 ---
 
@@ -543,6 +561,8 @@ In practice, you will rarely type `uv venv` and activate by hand, because `uv ru
 5. Deactivate.
 6. Without activating again, try to guess — then check — whether `requests` is available in a brand-new folder with its own new environment. (It should not be. Explain to yourself why, in one sentence, before moving on.)
 
+> **Want to go deeper?** [uv's own guide to projects and environments](https://docs.astral.sh/uv/concepts/projects/) covers exactly what section 9.7 hints at — how `uv run` automates what you just did by hand. If interested, read it after this session, before you rely on that automation for real in section 16.
+
 ---
 
 ## 10. Installing Git
@@ -615,6 +635,8 @@ Confirm your settings:
 git config --global --list
 ```
 
+> **Want to go deeper?** The free online book [Pro Git](https://git-scm.com/book/en/v2), especially chapter 1–2, explains what a commit actually is under the hood — more than this guide needs, but it's the standard reference everyone eventually reads. Explore its first two chapters after today's session if you're interested in why Git works the way it does.
+
 ---
 
 ## 11. Setting up GitHub
@@ -651,6 +673,8 @@ On **Windows**, you do not need to configure SSH keys or personal access tokens 
 To sign VS Code in, click the **Accounts** icon at the bottom of the Activity Bar, choose **Sign in with GitHub**, and complete the process in the browser window that opens. This enables settings sync and smooths every later interaction with GitHub.
 
 The first time you push code (section 17), a browser window will open asking you to authorise. Approve it once, and your machine remembers the credentials.
+
+> **Want to go deeper?** [GitHub Skills](https://skills.github.com/) offers free, interactive, hands-on courses directly on GitHub itself. If interested, try the "Introduction to GitHub" course after this session — it reinforces everything in this section with guided practice.
 
 ---
 
@@ -817,6 +841,8 @@ The browser works identically if you prefer it — click **Compare & pull reques
 6. Open a pull request back to the original repository (section 12.8), describing what you changed and why.
 7. Whether or not it is merged, you have now completed the exact workflow used to contribute to real open-source projects.
 
+> **Want to go deeper?** [GitHub's own docs on collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) cover review etiquette and conventions this section only touches on. If interested, explore a real open-source project's "good first issue" label after this session — [goodfirstissue.dev](https://goodfirstissue.dev/) curates them across languages.
+
 ---
 
 ## 13. Introduction to Markdown
@@ -950,6 +976,8 @@ Create a file called `profile-draft.md` inside your `projects` folder and write 
 
 Open it with `Ctrl/Cmd + Shift + V` in VS Code and check that everything renders the way you intended. This is close to a first draft of the profile you will eventually put on GitHub itself.
 
+> **Want to go deeper?** The [GitHub Flavored Markdown Spec](https://github.github.com/gfm/) is the precise reference for the extra features GitHub adds on top of plain Markdown — task lists, tables, and more. If interested, skim it after this session; you don't need to memorise it, just know it exists for when you need an exact answer.
+
 ---
 
 ## 14. VS Code extensions for data science
@@ -1019,6 +1047,8 @@ Open the Command Palette, type `Preferences: Open User Settings (JSON)`, and add
 
 These format your code on every save, mark the conventional line length, save your work automatically, and keep enormous notebook outputs from swamping the screen.
 
+> **Want to go deeper?** [Ruff's documentation](https://docs.astral.sh/ruff/) explains the specific style rules it enforces, and the [Data Wrangler docs](https://code.visualstudio.com/docs/datascience/data-wrangler) go further into its cleaning features than this list does. If interested, explore both after this session, once you have real data to try them on.
+
 ---
 
 ## 15. VS Code and AI
@@ -1074,6 +1104,8 @@ You do not need more than one completion tool running at a time — two suggesti
 5. Fix the bug yourself using the explanation, then, in one sentence, write down what caused the error in your own words.
 
 If you can complete step 5 without looking at the AI's fix, you used the tool correctly.
+
+> **Want to go deeper?** [GitHub's guide to responsible AI-assisted development](https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features) and Anthropic's [Claude Code documentation](https://docs.claude.com/en/docs/claude-code) both go further into using these tools well. If interested, explore one of them after this session, and check your own institution's AI-use policy while you're at it — section 15.4's rule 4 applies immediately once graded work starts.
 
 ---
 
@@ -1181,6 +1213,8 @@ The dataframe appears below the cell. In the output, look for the **Open in Data
 | `uv lock` | Update the lock file that pins exact versions |
 | `uvx tool-name` | Run a command line tool without installing it permanently |
 
+> **Want to go deeper?** The [seaborn example gallery](https://seaborn.pydata.org/examples/index.html) and the [pandas user guide](https://pandas.pydata.org/docs/user_guide/) show far more than the single scatter plot built here. If interested, pick one seaborn example after this session and adapt it to the iris dataset you already have loaded.
+
 ---
 
 ## 17. Pushing your project to GitHub
@@ -1257,6 +1291,8 @@ Commit whenever you finish a coherent piece of work, which in practice means sev
 
 Update your `README.md` (section 13's skills again) to properly describe the Iris project — what it does, how to run it, and what the figure shows — then commit and push that single change with a clear message. This is the smallest possible complete example of the daily rhythm you will repeat for the rest of the course.
 
+> **Want to go deeper?** [GitHub's guide to writing a great README](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) has more structure than section 13.4's minimal example. If interested, explore a few well-known open-source projects' READMEs after this session and notice what they choose to include and leave out.
+
 ---
 
 ## 18. Optional: conda and when you might need it
@@ -1293,6 +1329,8 @@ conda install -c conda-forge rdkit
 ```
 
 > **Keep them apart.** Do not use uv and conda in the same project folder. Each expects to control the environment, and mixing them produces failures that are extremely difficult to diagnose. One project, one manager.
+>
+> **Want to go deeper?** The [conda-forge documentation](https://conda-forge.org/docs/) explains the community package channel referenced above, and Bioconda's [getting-started guide](https://bioconda.github.io/) is the standard entry point if you end up in a bioinformatics lab. Explore these only if your future work actually needs them — this section is optional for a reason.
 
 ---
 
@@ -1379,6 +1417,8 @@ uv sync
 
 If the problem persists, note the exact error message, including the final few lines of output, and bring it to the class channel. "It does not work" cannot be diagnosed. The error text usually can be.
 
+> **Want to go deeper?** Learning to search an error message well is its own skill — see [this classic guide to reading a Python traceback](https://realpython.com/python-traceback/). If interested, practice on a deliberately broken script after this session, before you need the skill under real time pressure.
+
 ---
 
 ## 20. Command reference card
@@ -1458,6 +1498,8 @@ If the problem persists, note the exact error message, including the final few l
 | `\| a \| b \|` rows | A table |
 | `> text` | A blockquote |
 
+> **Want to go deeper?** Print or bookmark this card — it's meant as a quick lookup, not a read-through. If you're interested in more shortcuts, VS Code's Command Palette entry `Preferences: Open Keyboard Shortcuts` lists every one it has, searchable by name.
+
 ---
 
 ## 21. Setup checklist
@@ -1487,6 +1529,8 @@ Confirm each item before the next session. Where a check is a command, run it in
 - [ ] The project is published to GitHub, with a proper `README.md`, and visible in the browser
 
 If any item fails, work through section 19 first. Bring the exact error message to class if you remain stuck.
+
+If you're interested in exploring further before the next session, pick just one item from the table below rather than all of them — depth on one resource beats a skim of seven.
 
 ---
 
