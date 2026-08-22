@@ -176,31 +176,32 @@ All notebooks will run on **Google Colab** — no local setup required. Colab li
 
 No setup needed. Once lab notebooks are published, open them directly in your browser via Colab — nothing to install.
 
-### Option 2: Local Setup
+### Option 2: Local Setup (VS Code)
+
+This cohort runs entirely in **VS Code**, using its built-in Jupyter Notebook support rather than the browser-based `jupyter notebook` server. If you haven't set up VS Code, Git, and `uv` yet, work through **[Getting Started with VS Code for Data Science](getting-started-vscode.md)** first — it covers installing everything below in detail, for Windows, macOS, and Linux.
 
 ```bash
-# Clone the repository
+# Clone the repository (see §14.2 of the getting-started guide)
 git clone https://github.com/arewadataScience/ArewaDS-Introduction-to-Python-2026.git
 cd ArewaDS-Introduction-to-Python-2026
+code .
 
-# (Optional) create a virtual environment
-python -m venv py-env
-source py-env/bin/activate       # macOS/Linux
-py-env\Scripts\activate          # Windows
-
-# Install Jupyter to run the lab notebooks locally
-pip install -r requirements.txt
-
-# Launch the labs
-jupyter notebook labs/
+# Create the project's virtual environment and install Jupyter support with uv
+uv sync
 ```
 
-**`requirements.txt`:**
+Then, inside VS Code:
+
+1. Open a lab notebook from the `labs/` folder in the Explorer panel — it opens directly in VS Code's built-in notebook editor, no browser tab required.
+2. Click **Select Kernel** (top right of the notebook) → **Python Environments** → the entry showing `.venv` for this project.
+3. Run cells with `Shift + Enter`.
+
+**`pyproject.toml`** pins the one dependency this repo needs:
 ```
 jupyter
 ```
 
-> The course itself uses only Python's standard library — there are no data-science packages to install. Jupyter is needed only if you want to run the lab notebooks on your own machine instead of in Colab.
+> The course itself uses only Python's standard library — there are no data-science packages to install. Jupyter is needed only to run the lab notebooks locally; if you'd rather avoid local setup entirely, use Option 1 (Colab) instead.
 
 ---
 
