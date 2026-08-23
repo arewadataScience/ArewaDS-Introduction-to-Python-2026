@@ -16,7 +16,7 @@
 ---
 
 > **This is the on-ramp to the Introduction to Machine Learning course.**
-> Completing these 8 sessions satisfies the *"some Python experience (loops, functions, lists)"* prerequisite for the ML summer school. Start here if you're new to programming.
+> Completing these 8 sessions satisfies the *"some Python experience (loops, functions, lists)"* prerequisite for the ML summer school. Start here if you are new to programming.
 
 ---
 
