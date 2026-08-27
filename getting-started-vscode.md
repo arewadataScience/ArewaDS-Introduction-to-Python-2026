@@ -28,13 +28,14 @@ Wherever a step differs by operating system, you will see three tabs of instruct
 12. [Installing Git](#12-installing-git)
 13. [Setting up GitHub](#13-setting-up-github)
 14. [GitHub in VS Code: managing GitHub files](#14-github-in-vs-code-managing-github-files)
-15. [VS Code and AI](#15-vs-code-and-ai)
-16. [Your first project, end to end](#16-your-first-project-end-to-end)
-17. [Pushing your project to GitHub](#17-pushing-your-project-to-github)
-18. [Optional: conda and when you might need it](#18-optional-conda-and-when-you-might-need-it)
-19. [Troubleshooting](#19-troubleshooting)
-20. [Command reference card](#20-command-reference-card)
-21. [Setup checklist](#21-setup-checklist)
+15. [Using Jupyter notebooks in VS Code](#15-using-jupyter-notebooks-in-vs-code)
+16. [VS Code and AI](#16-vs-code-and-ai)
+17. [Your first project, end to end](#17-your-first-project-end-to-end)
+18. [Pushing your project to GitHub](#18-pushing-your-project-to-github)
+19. [Optional: conda and when you might need it](#19-optional-conda-and-when-you-might-need-it)
+20. [Troubleshooting](#20-troubleshooting)
+21. [Command reference card](#21-command-reference-card)
+22. [Setup checklist](#22-setup-checklist)
 
 ---
 
@@ -143,7 +144,7 @@ Also avoid spaces, accents, and special characters in folder and file names. `he
       - ☑ **Add to PATH** (this one is essential, and is normally ticked already)
    5. **Install**, then **Finish**.
 
-The two "Open with Code" options mean you can right-click any folder in File Explorer and open it directly in VS Code. **Add to PATH** means you can type `code .` in any terminal to open the current folder in VS Code. If you miss this option, see section 19.4 for the fix.
+The two "Open with Code" options mean you can right-click any folder in File Explorer and open it directly in VS Code. **Add to PATH** means you can type `code .` in any terminal to open the current folder in VS Code. If you miss this option, see section 20.4 for the fix.
 
 ### macOS
 
@@ -430,7 +431,7 @@ This step is not optional, on any platform. Close the terminal panel by clicking
 uv --version
 ```
 
-You should see something like `uv 0.9.x`. If you see an error instead, go to section 19.1.
+You should see something like `uv 0.9.x`. If you see an error instead, go to section 20.1.
 
 ### 7.4 Keeping uv current
 
@@ -490,7 +491,7 @@ With uv, the environment lives in a folder called `.venv` inside your project, a
 
 ## 9. Creating a virtual environment with uv
 
-Section 8.4 described *what* a virtual environment is. Here you will build one yourself, by hand, before we let uv manage the process automatically for real projects in section 16. Doing it manually once removes the mystery.
+Section 8.4 described *what* a virtual environment is. Here you will build one yourself, by hand, before we let uv manage the process automatically for real projects in section 17. Doing it manually once removes the mystery.
 
 ### 9.1 Make a scratch folder
 
@@ -550,7 +551,7 @@ Identical command on every platform. Your prompt returns to normal, and `python 
 
 ### 9.7 The shortcut you will actually use
 
-In practice, you will rarely type `uv venv` and activate by hand, because `uv run` (introduced in section 16) creates and uses the right environment automatically, every time, without an activation step at all. Section 9.1–9.6 exists so that when `uv run` does this invisibly later, you know exactly what it is doing on your behalf, and you can diagnose it if something looks wrong.
+In practice, you will rarely type `uv venv` and activate by hand, because `uv run` (introduced in section 17) creates and uses the right environment automatically, every time, without an activation step at all. Section 9.1–9.6 exists so that when `uv run` does this invisibly later, you know exactly what it is doing on your behalf, and you can diagnose it if something looks wrong.
 
 ### 9.8 Practice exercise
 
@@ -561,7 +562,7 @@ In practice, you will rarely type `uv venv` and activate by hand, because `uv ru
 5. Deactivate.
 6. Without activating again, try to guess — then check — whether `requests` is available in a brand-new folder with its own new environment. (It should not be. Explain to yourself why, in one sentence, before moving on.)
 
-> **Want to go deeper?** [uv's own guide to projects and environments](https://docs.astral.sh/uv/concepts/projects/) covers exactly what section 9.7 hints at — how `uv run` automates what you just did by hand. If interested, read it after this session, before you rely on that automation for real in section 16.
+> **Want to go deeper?** [uv's own guide to projects and environments](https://docs.astral.sh/uv/concepts/projects/) covers exactly what section 9.7 hints at — how `uv run` automates what you just did by hand. If interested, read it after this session, before you rely on that automation for real in section 17.
 
 ---
 
@@ -657,7 +658,7 @@ def greet(name):
 
 ### 10.4 A worked example: a project README
 
-Every project you build from section 16 onward should have a `README.md` explaining what it is. Here is a minimal, honest one for a first project:
+Every project you build from section 17 onward should have a `README.md` explaining what it is. Here is a minimal, honest one for a first project:
 
 ```markdown
 # Iris Species Analysis
@@ -878,7 +879,7 @@ On **Windows**, you do not need to configure SSH keys or personal access tokens 
 
 To sign VS Code in, click the **Accounts** icon at the bottom of the Activity Bar, choose **Sign in with GitHub**, and complete the process in the browser window that opens. This enables settings sync and smooths every later interaction with GitHub.
 
-The first time you push code (section 17), a browser window will open asking you to authorise. Approve it once, and your machine remembers the credentials.
+The first time you push code (section 18), a browser window will open asking you to authorise. Approve it once, and your machine remembers the credentials.
 
 > **Want to go deeper?** [GitHub Skills](https://skills.github.com/) offers free, interactive, hands-on courses directly on GitHub itself. If interested, try the "Introduction to GitHub" course after this session — it reinforces everything in this section with guided practice.
 
@@ -894,7 +895,7 @@ Beginners often blur these together. They are different operations, used in diff
 
 | Operation | What it does | When you use it |
 |---|---|---|
-| **`git init`** | Turns an *existing local folder* into a Git repository, from scratch | Starting a brand-new project of your own (this is what `uv init` did for you in section 16) |
+| **`git init`** | Turns an *existing local folder* into a Git repository, from scratch | Starting a brand-new project of your own (this is what `uv init` did for you in section 17) |
 | **`git clone`** | Downloads a *copy of a repository you already have write access to* | Working on your own repository, or one your team added you to |
 | **Fork, then clone** | Makes *your own copy of someone else's repository* on GitHub, then downloads that copy | Contributing to a project you do not have write access to — including this course's own repository |
 
@@ -1110,13 +1111,120 @@ Keep `ArewaDS-Practice` around for the rest of the course. Any time an instructi
 
 ---
 
-## 15. VS Code and AI
+## 15. Using Jupyter notebooks in VS Code
 
-### 15.1 Why this section exists
+### 15.1 There is more than one way to run Python
+
+By this point you have run Python exactly one way: typing a command like `python --version` and, later, `uv run` against a `.py` file. That is not the only way, and it is worth knowing the landscape before we settle on one for this course.
+
+| Way of running Python | What it looks like | When it is right |
+|---|---|---|
+| **A script**, run top to bottom | `uv run main.py` in the terminal | A finished, repeatable pipeline — load data, process it, save a result, done |
+| **The interactive interpreter (REPL)** | Typing `python` in a terminal and getting a `>>>` prompt, one line at a time | A ten-second check of how something behaves, then you close it and the result is gone |
+| **A Jupyter notebook** | A `.ipynb` file of cells, each run independently, with output kept underneath | Exploration — trying something, looking at the result, deciding what to try next, and keeping a readable record of that process |
+
+All three run the same language. The difference is entirely about *workflow*: how much you see, how much is kept, and how easily you can back up and try a different step without rerunning everything.
+
+For this course, we will run Python programs using a **Jupyter notebook inside VS Code**, for exploratory work like the data analysis you will be doing throughout. It combines code, output, and the Markdown notes from section 10 in one document you can read top to bottom later and actually understand what you were thinking. You already installed everything needed for this in section 11 — the **Jupyter** extension — so there is nothing new to install here.
+
+### 15.2 What a notebook actually is
+
+A Jupyter notebook is a file (`.ipynb`) made of **cells**. Each cell is either:
+
+- a **code cell**, which you run independently of the others, with its output — text, a table, a chart — appearing directly beneath it, or
+- a **Markdown cell**, rendered text using exactly the syntax from section 10.
+
+Cells run in whatever order you run them, not necessarily top to bottom, and each one remembers the variables created by cells you have already run. This is the notebook's main power and its main trap: it lets you build up an analysis one step at a time, but it also lets you run cells out of order until the notebook no longer matches what a fresh run top-to-bottom would produce. Section 15.6 gives you a way to guard against that.
+
+### 15.3 Creating your first notebook
+
+1. In your `projects` folder (section 2.4), create a new folder called `notebook-practice` and open it in VS Code (`code notebook-practice` from the terminal, or **File → Open Folder**).
+2. Open a terminal inside it (``Ctrl + ` ``) and set up an environment with the libraries a notebook needs, the same way you did by hand in section 9:
+
+   ```powershell
+   uv init .
+   uv add jupyter ipykernel pandas matplotlib
+   ```
+
+   `ipykernel` is what lets VS Code run notebook cells against this project's `.venv`, rather than some other Python on your machine.
+
+3. In the Explorer panel, click the new file icon and name the file `practice.ipynb`, including the extension — this is what tells VS Code to open it as a notebook rather than a text file.
+4. VS Code opens the notebook interface: an empty code cell, with a **Select Kernel** button at the top right.
+5. Click **Select Kernel**, choose **Python Environments**, then pick the entry showing `.venv` inside `notebook-practice`. This is the environment `uv add` just built. Picking the wrong kernel — or none at all — is the single most common notebook problem beginners hit (see section 20.7 if it happens to you later).
+
+### 15.4 Running cells: a worked example
+
+Type the following into the first cell, then run it with `Shift + Enter` (this runs the cell and creates a new one below it, ready for the next step):
+
+```python
+name = "Arewa Data Science Academy"
+year = 2026
+print(f"Hello from {name}, {year}")
+```
+
+You should see the printed line appear directly beneath the cell, with a small number to its left recording that it was the first cell you ran.
+
+Add a **Markdown cell** next: click **+ Markdown** in the notebook toolbar (or press `Esc` then `M` on a selected cell to convert it), and write a short heading:
+
+```markdown
+## First notebook — getting used to cells
+```
+
+Run it with `Shift + Enter` to render it, exactly as in section 10.3.
+
+Now try something a script would hide from you until the very end — a step-by-step look at data, using the pandas library you added in section 15.3:
+
+```python
+import pandas as pd
+
+data = {
+    "student": ["Amina", "Kofi", "Tunde", "Zainab"],
+    "score": [88, 76, 95, 82],
+}
+df = pd.DataFrame(data)
+df
+```
+
+Run this cell. Because the last line is a bare expression (`df`, not `print(df)`), the notebook displays it as a formatted table beneath the cell — this is a notebook-specific convenience that a plain script does not give you.
+
+Add one more cell that builds on the last one, proving that state persists between cells:
+
+```python
+df["passed"] = df["score"] >= 80
+df
+```
+
+`df` still exists because you ran the cell that created it — this is exactly the behaviour flagged as a trap in section 15.2.
+
+### 15.5 A quick plot, because this is why data scientists like notebooks
+
+```python
+import matplotlib.pyplot as plt
+
+df.plot(kind="bar", x="student", y="score", legend=False)
+plt.title("Scores by student")
+plt.show()
+```
+
+Run the cell and the chart appears directly beneath it, right next to the data that produced it — no separate window, no saved file to go and open. This tight loop of *change something, see the result immediately* is the entire reason notebooks exist.
+
+### 15.6 Practice exercise
+
+1. In `practice.ipynb`, build a small notebook of your own that: has one Markdown heading at the top describing what the notebook does; loads or creates a small table of data (reuse the `df` example above, or invent your own — three or four rows is enough); adds at least one new column computed from the existing ones; and ends with one chart.
+2. Now do the check every notebook user should form as a habit: use the **Run All** command (Command Palette → `Notebook: Run All Cells`, or the "Run All" button in the toolbar) to execute every cell top to bottom in a clean pass, and confirm the output still matches what you saw while building it step by step. If it does not, you ran cells out of order while building it — this is exactly the trap section 15.2 warned about, and "Run All" is how you catch it before anyone else sees the notebook.
+3. Add one more Markdown cell at the bottom noting, in one sentence, when you would reach for a notebook over a script.
+
+> **Want to go deeper?** [VS Code's Jupyter notebook documentation](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) covers features this section does not, including variable explorers and exporting a notebook to a Python script. If interested, explore the **Data Wrangler** extension from section 11 on the `df` table above after this session — it gives point-and-click cleaning that writes the pandas code for you.
+
+---
+
+## 16. VS Code and AI
+
+### 16.1 Why this section exists
 
 You are learning Python at a moment when the editor itself can write, explain, and debug code alongside you. That is a genuine change to how programming is practised, and pretending otherwise would leave you unprepared for how research and industry teams already work. This section is not about replacing sections 1–13 — you still need the fundamentals in your own head, because you are the one who has to judge whether an AI's suggestion is correct, and an AI that writes code you cannot read is not actually saving you time. Think of it the way a calculator relates to arithmetic: enormously useful once you understand what it is doing, and a trap if you never learned to do it yourself.
 
-### 15.2 What you can do with AI inside VS Code today
+### 16.2 What you can do with AI inside VS Code today
 
 | Capability | What it looks like in practice |
 |---|---|
@@ -1129,7 +1237,7 @@ You are learning Python at a moment when the editor itself can write, explain, a
 | **Generate tests and docstrings** | Point an assistant at a function and ask for test cases or a docstring, then check both by hand. |
 | **Terminal help** | Ask "what is the command to undo my last Git commit without losing the changes?" instead of guessing at flags. |
 
-### 15.3 Recommended tools and extensions
+### 16.3 Recommended tools and extensions
 
 | Tool | Type | Notes |
 |---|---|---|
@@ -1147,32 +1255,32 @@ code --install-extension GitHub.copilot-chat
 
 You do not need more than one completion tool running at a time — two suggesting ghost text simultaneously is confusing rather than helpful. Pick one for this course.
 
-### 15.4 Using AI well as a beginner: four rules
+### 16.4 Using AI well as a beginner: four rules
 
 1. **Never run or submit code you cannot explain line by line.** If an assistant writes a function and you cannot say what each line does, you have not learned it — ask "explain this line by line" before moving on, every time, until it becomes automatic.
 2. **Use it to get unstuck, not to skip the struggle entirely.** The productive moment in learning to program is usually the ten minutes before you understand something. Asking immediately removes that moment; asking after you have tried removes only the frustration.
 3. **Verify, don't trust.** AI assistants confidently produce incorrect code, invent library functions that do not exist, and misremember syntax. Run the code. Check the output against what you expect. This habit matters more in data science than almost anywhere else, because a wrong analysis can look identical to a right one until someone checks the numbers.
 4. **Check your course and institution's policy before using AI on graded work.** Using an assistant to understand a lab is usually encouraged; using one to produce a submission you present as entirely your own may not be, and the line between the two is a matter of institutional policy, not personal judgement. When in doubt, ask your instructor.
 
-### 15.5 Practice exercise
+### 16.5 Practice exercise
 
-1. Install a chat/completion extension from section 15.3.
-2. Open the `main.py` you will write in section 16, or any short script you already have.
+1. Install a chat/completion extension from section 16.3.
+2. Open the `main.py` you will write in section 17, or any short script you already have.
 3. Deliberately introduce a bug — for example, change `==` to `=` inside a condition, or misspell a variable name.
 4. Run the script, copy the exact error message, and ask the AI chat what it means and how to fix it, without asking it to just "fix my code."
 5. Fix the bug yourself using the explanation, then, in one sentence, write down what caused the error in your own words.
 
 If you can complete step 5 without looking at the AI's fix, you used the tool correctly.
 
-> **Want to go deeper?** [GitHub's guide to responsible AI-assisted development](https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features) and Anthropic's [Claude Code documentation](https://docs.claude.com/en/docs/claude-code) both go further into using these tools well. If interested, explore one of them after this session, and check your own institution's AI-use policy while you're at it — section 15.4's rule 4 applies immediately once graded work starts.
+> **Want to go deeper?** [GitHub's guide to responsible AI-assisted development](https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features) and Anthropic's [Claude Code documentation](https://docs.claude.com/en/docs/claude-code) both go further into using these tools well. If interested, explore one of them after this session, and check your own institution's AI-use policy while you're at it — section 16.4's rule 4 applies immediately once graded work starts.
 
 ---
 
-## 16. Your first project, end to end
+## 17. Your first project, end to end
 
 Everything is installed. We now build a small project to confirm that the pieces work together. Every command below is identical on Windows, macOS, and Linux unless marked otherwise.
 
-### 16.1 Create the project
+### 17.1 Create the project
 
 In the terminal:
 
@@ -1193,7 +1301,7 @@ code .
 | `.python-version` | Records which Python version this project uses |
 | `.gitignore` | Lists files Git should ignore |
 
-### 16.2 Add libraries
+### 17.2 Add libraries
 
 ```powershell
 uv add pandas matplotlib seaborn scikit-learn jupyter ipykernel
@@ -1203,7 +1311,7 @@ Watch the terminal. uv creates the `.venv` folder — the same kind of environme
 
 Note that you did not activate anything and did not run `pip`. `uv add` handled the environment for you, exactly as promised in section 9.7.
 
-### 16.3 Write a script
+### 17.3 Write a script
 
 Open `main.py` in the editor and replace its contents with:
 
@@ -1228,7 +1336,7 @@ plt.savefig("iris_scatter.png", dpi=150, bbox_inches="tight")
 print("\nFigure saved as iris_scatter.png")
 ```
 
-### 16.4 Run it
+### 17.4 Run it
 
 ```powershell
 uv run main.py
@@ -1238,9 +1346,9 @@ uv run main.py
 
 You should see the summary tables printed, and a new file `iris_scatter.png` in the Explorer panel. Click it to view the figure.
 
-### 16.5 Work in a notebook
+### 17.5 Work in a notebook
 
-Scripts are right for pipelines you will run repeatedly. Notebooks are right for exploration, where you want to see the result of each step before deciding on the next, mixing code cells with the Markdown text cells from section 10.
+Scripts are right for pipelines you will run repeatedly. Notebooks — introduced in section 15 — are right for exploration, where you want to see the result of each step before deciding on the next. Here, apply that skill to the real project you just built, rather than a scratch folder.
 
 1. Create a new file called `exploration.ipynb`. In the Explorer panel, click the new file icon and type the name including the extension.
 2. The notebook interface opens.
@@ -1261,7 +1369,7 @@ The dataframe appears below the cell. In the output, look for the **Open in Data
 
 7. Add a new cell above it, change its type to **Markdown**, and write a one-line heading describing what the notebook does — put section 10's skills to immediate use.
 
-### 16.6 Commands you will use every day
+### 17.6 Commands you will use every day
 
 | Command | Effect |
 |---|---|
@@ -1276,9 +1384,9 @@ The dataframe appears below the cell. In the output, look for the **Open in Data
 
 ---
 
-## 17. Pushing your project to GitHub
+## 18. Pushing your project to GitHub
 
-### 17.1 Initialise version control
+### 18.1 Initialise version control
 
 Still inside the project folder:
 
@@ -1292,7 +1400,7 @@ Reading these three lines: start tracking this folder, stage everything currentl
 
 A commit message should say what changed and why. `Add species comparison plot` is useful. `update` and `stuff` are not, and your future self will resent them.
 
-### 17.2 Check what Git is ignoring
+### 18.2 Check what Git is ignoring
 
 Open the `.gitignore` file that `uv init` created. It already excludes `.venv` and Python's cache folders. This is correct, because environments are rebuilt from `pyproject.toml` rather than shared.
 
@@ -1313,7 +1421,7 @@ data/raw/
 
 > **A rule with no exceptions.** Never commit passwords, API keys, or personal data. Once something reaches GitHub it is in the history permanently, and deleting the file afterwards does not remove it. Treat this with the seriousness you would give to publishing patient records.
 
-### 17.3 Create the repository on GitHub
+### 18.3 Create the repository on GitHub
 
 The easiest route is through VS Code itself, identically on every operating system:
 
@@ -1332,7 +1440,7 @@ git branch -M main
 git push -u origin main
 ```
 
-### 17.4 The daily rhythm
+### 18.4 The daily rhythm
 
 After the first push, your working cycle is:
 
@@ -1346,7 +1454,7 @@ Or use the Source Control panel: type a message in the box, click the tick to co
 
 Commit whenever you finish a coherent piece of work, which in practice means several times a day. Small, frequent commits are easy to review and easy to undo. One enormous commit at the end of the week is neither.
 
-### 17.5 Practice exercise
+### 18.5 Practice exercise
 
 Update your `README.md` (section 10's skills again) to properly describe the Iris project — what it does, how to run it, and what the figure shows — then commit and push that single change with a clear message. This is the smallest possible complete example of the daily rhythm you will repeat for the rest of the course.
 
@@ -1354,7 +1462,7 @@ Update your `README.md` (section 10's skills again) to properly describe the Iri
 
 ---
 
-## 18. Optional: conda and when you might need it
+## 19. Optional: conda and when you might need it
 
 You will meet conda in scientific computing, and you should know where it fits, regardless of operating system.
 
@@ -1393,9 +1501,9 @@ conda install -c conda-forge rdkit
 
 ---
 
-## 19. Troubleshooting
+## 20. Troubleshooting
 
-### 19.1 "uv is not recognised" / "command not found: uv"
+### 20.1 "uv is not recognised" / "command not found: uv"
 
 Almost always because the terminal was open before uv was installed.
 
@@ -1404,7 +1512,7 @@ Almost always because the terminal was open before uv was installed.
 3. If it still fails, close VS Code entirely and reopen it.
 4. If it still fails, restart your computer.
 
-### 19.2 Typing `python` opens the Microsoft Store (Windows only)
+### 20.2 Typing `python` opens the Microsoft Store (Windows only)
 
 Windows ships a placeholder that hijacks the `python` command. Disable it.
 
@@ -1412,7 +1520,7 @@ Open **Settings**, then **Apps**, then **Advanced app settings**, then **App exe
 
 Note that with uv you rarely type `python` directly. Use `uv run` instead.
 
-### 19.3 "Running scripts is disabled on this system" (Windows only)
+### 20.3 "Running scripts is disabled on this system" (Windows only)
 
 PowerShell blocks scripts by default. Run this once:
 
@@ -1422,23 +1530,23 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 This applies to your user account only and does not require administrator rights. Answer `Y` when prompted.
 
-### 19.4 `code .` does nothing (any platform)
+### 20.4 `code .` does nothing (any platform)
 
 The PATH entry, or the shell command, is missing. Open VS Code, press `Ctrl/Cmd + Shift + P`, type `Shell Command: Install 'code' command in PATH`, and run it. Then restart the terminal.
 
-### 19.5 "Permission denied" when running a downloaded script (macOS/Linux)
+### 20.5 "Permission denied" when running a downloaded script (macOS/Linux)
 
 macOS and Linux enforce file permissions more strictly than Windows. If a script refuses to run directly, either use the `sh`/`bash` prefix shown in section 7.1 (which sidesteps the permission entirely), or mark it executable first: `chmod +x script.sh`.
 
-### 19.6 macOS says the app "cannot be opened because the developer cannot be verified"
+### 20.6 macOS says the app "cannot be opened because the developer cannot be verified"
 
 Right-click (or Control-click) the app in Finder, choose **Open**, then confirm **Open** in the dialogue that appears. This is a one-time step per app and is expected behaviour for software downloaded outside the App Store.
 
-### 19.7 The notebook cannot find a library you installed
+### 20.7 The notebook cannot find a library you installed
 
 You have selected the wrong kernel. Click the kernel name at the top right of the notebook, choose **Select Another Kernel**, then **Python Environments**, and pick the one showing `.venv` inside your project folder. Almost every "but I installed it" problem is this, on every operating system.
 
-### 19.8 Downloads fail or time out
+### 20.8 Downloads fail or time out
 
 Frequently a network issue rather than a tool issue.
 
@@ -1446,11 +1554,11 @@ Frequently a network issue rather than a tool issue.
 - If you are on a university or corporate network, a proxy may be blocking the connection. Try a mobile hotspot to confirm.
 - If a download stalls repeatedly, run the command again. uv caches what it already fetched and resumes rather than starting over.
 
-### 19.9 Git asks for a password and rejects it
+### 20.9 Git asks for a password and rejects it
 
 GitHub stopped accepting account passwords for Git operations. Let Git's credential helper handle it: when a browser window opens, sign in there. On Windows, if credentials have become stale, open **Credential Manager** from the Start menu, go to **Windows Credentials**, and delete any entry mentioning `github.com`; the next push will prompt you afresh. On macOS, do the same via **Keychain Access**, searching for `github.com`.
 
-### 19.10 Filename or path too long (Windows)
+### 20.10 Filename or path too long (Windows)
 
 Windows historically limited paths to 260 characters. Shorten your project path, which is another reason to work in `C:\Users\YourName\projects` rather than deep inside Documents. You can also run, in a terminal opened as administrator:
 
@@ -1458,7 +1566,7 @@ Windows historically limited paths to 260 characters. Shorten your project path,
 git config --system core.longpaths true
 ```
 
-### 19.11 Everything is broken and you cannot work out why
+### 20.11 Everything is broken and you cannot work out why
 
 Delete the environment and rebuild it. This is safe, because the environment is disposable by design, on every operating system.
 
@@ -1480,7 +1588,7 @@ If the problem persists, note the exact error message, including the final few l
 
 ---
 
-## 20. Command reference card
+## 21. Command reference card
 
 ### VS Code shortcuts
 
@@ -1561,7 +1669,7 @@ If the problem persists, note the exact error message, including the final few l
 
 ---
 
-## 21. Setup checklist
+## 22. Setup checklist
 
 Confirm each item before the next session. Where a check is a command, run it in a fresh VS Code terminal.
 
@@ -1585,12 +1693,12 @@ Confirm each item before the next session. Where a check is a command, run it in
 - [ ] You have created your own `ArewaDS-Practice` repository and practiced push, pull, and branching in it (section 14.9)
 - [ ] You can write and preview basic Markdown — headings, lists, links, code blocks, a table (section 10.5)
 - [ ] All extensions from section 11.1 installed
-- [ ] An AI chat/completion extension installed and tried at least once (section 15.5)
+- [ ] An AI chat/completion extension installed and tried at least once (section 16.5)
 - [ ] The `iris-analysis` project runs and produces `iris_scatter.png`
 - [ ] A notebook runs a cell using the `.venv` kernel, including at least one Markdown cell
 - [ ] The project is published to GitHub, with a proper `README.md`, and visible in the browser
 
-If any item fails, work through section 19 first. Bring the exact error message to class if you remain stuck.
+If any item fails, work through section 20 first. Bring the exact error message to class if you remain stuck.
 
 If you're interested in exploring further before the next session, pick just one item from the table below rather than all of them — depth on one resource beats a skim of seven.
 
