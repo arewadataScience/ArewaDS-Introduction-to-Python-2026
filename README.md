@@ -132,7 +132,7 @@ The Arewa DataScience Fellowship's original setup guides remain available for re
 
 | # | Topic | Slides | Lab | Recording | Key Concepts | Reading (Lambert) | Instructor |
 |:---:|---|:---:|:---:|:---:|---|:---:|:---:|
-| 1 | First Programs & the Shell | [Slides](slide/w1.pptx) | TBA | TBA | The edit–run–debug loop, `print`, `input`, variables, comments | Ch. 1, §2.1–2.2 | TBA |
+| 1 | First Programs & the Shell | [Slides](slide/w1.pptx) | [Lab](notebooks/w1.ipynb) | [YouTube](https://youtube.com/TBA) | The edit–run–debug loop, `print`, `input`, variables, comments | Ch. 1, §2.1–2.2 | Dr. I.S. Ahmad |
 | 2 | Data Types & Expressions | TBA | TBA | TBA | `int` / `float` / `str`, arithmetic, precedence, type conversion, f-strings | Ch. 2 | TBA |
 | 3 | Making Decisions | TBA | TBA | TBA | Booleans, comparison & logical operators, `if` / `elif` / `else` | Ch. 3 (selection) | TBA |
 | 4 | Repetition with Loops | TBA | TBA | TBA | `while`, `for`, `range`, accumulator & sentinel patterns | Ch. 3 (loops) | TBA |
@@ -159,7 +159,7 @@ All notebooks will run on **Google Colab** — no local setup required. Colab li
 
 | Lab | Topic |
 |:---:|---|
-| 01 | First Programs & Variables |
+| [01](notebooks/w1.ipynb) | First Programs & Variables |
 | 02 | Numbers, Strings & Expressions |
 | 03 | Branching: `if` / `elif` / `else` |
 | 04 | Loops: `while` & `for` |
