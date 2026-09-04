@@ -1138,8 +1138,8 @@ Cells run in whatever order you run them, not necessarily top to bottom, and eac
 
 ### 15.3 Creating your first notebook
 
-1. In your `projects` folder (section 2.4), create a new folder called `notebook-practice` and open it in VS Code (`code notebook-practice` from the terminal, or **File → Open Folder**).
-2. Open a terminal inside it (``Ctrl + ` ``) and set up an environment with the libraries a notebook needs, the same way you did by hand in section 9:
+1. In your `projects` folder (section 2.4), create a new folder called `notebook-practice` and open it in VS Code (`code notebook-practice` from the terminal, or File → Open Folder).
+2. Open a terminal inside it (`Ctrl + ` `) and set up an environment with the libraries a notebook needs, the same way you did by hand in section 9:
 
    ```powershell
    uv init .
@@ -1148,9 +1148,29 @@ Cells run in whatever order you run them, not necessarily top to bottom, and eac
 
    `ipykernel` is what lets VS Code run notebook cells against this project's `.venv`, rather than some other Python on your machine.
 
-3. In the Explorer panel, click the new file icon and name the file `practice.ipynb`, including the extension — this is what tells VS Code to open it as a notebook rather than a text file.
-4. VS Code opens the notebook interface: an empty code cell, with a **Select Kernel** button at the top right.
-5. Click **Select Kernel**, choose **Python Environments**, then pick the entry showing `.venv` inside `notebook-practice`. This is the environment `uv add` just built. Picking the wrong kernel — or none at all — is the single most common notebook problem beginners hit (see section 20.7 if it happens to you later).
+3. Register the environment as a Jupyter kernel:
+
+   ```powershell
+   uv run python -m ipykernel install --user --name notebook-practice --display-name "Python (notebook-practice)"
+   ```
+
+   This makes the project's `uv` environment available as a selectable Jupyter kernel. On Windows, this step may be necessary even when VS Code can already see the `.venv` as a Python environment.
+
+4. In the Explorer panel, click the new file icon and name the file `practice.ipynb`, including the extension — this is what tells VS Code to open it as a notebook rather than a text file.
+5. VS Code opens the notebook interface: an empty code cell, with a Select Kernel button at the top right.
+6. Click Select Kernel, then look under Jupyter Kernels for:
+
+   ```text
+   Python (notebook-practice)
+   ```
+
+   Select it.
+
+7. Run the first cell to confirm everything is working. The notebook is now running against the project's `.venv`.
+
+**If you don't see the kernel:** If `Python (notebook-practice)` doesn't appear after registration, reload VS Code with Ctrl+Shift+P → Developer: Reload Window, then open the notebook and try Select Kernel again. You can also check Python Environments for the `.venv` inside `notebook-practice`.
+
+**Why register it?** A Python virtual environment and a Jupyter kernel are related but aren't quite the same thing. `uv` creates and manages the virtual environment, while the `ipykernel install` command explicitly tells Jupyter, "this Python environment should be available as a notebook kernel." On some systems—particularly Windows—that explicit registration is needed before VS Code shows it in the kernel picker.
 
 ### 15.4 Running cells: a worked example
 
