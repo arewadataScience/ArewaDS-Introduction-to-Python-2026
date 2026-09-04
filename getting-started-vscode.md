@@ -1148,7 +1148,7 @@ Cells run in whatever order you run them, not necessarily top to bottom, and eac
 
    `ipykernel` is what lets VS Code run notebook cells against this project's `.venv`, rather than some other Python on your machine.
 
-3. Register the environment as a Jupyter kernel:
+3. (Optional) Register the environment as a Jupyter kernel:
 
    ```powershell
    uv run python -m ipykernel install --user --name notebook-practice --display-name "Python (notebook-practice)"
