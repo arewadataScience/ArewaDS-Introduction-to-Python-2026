@@ -137,8 +137,8 @@ The Arewa DataScience Fellowship's original setup guides remain available for re
 | 3 | Making Decisions | [Slides](slide/w3.pdf) | [Lab](notebooks/w3.ipynb) | [Session 1](https://youtu.be/rw3Fr13EJMw), [Session 2](https://youtu.be/OicPd57ZsOE) | Booleans, comparison & logical operators, `if` / `elif` / `else` | Ch. 3 (selection) | [Dr. I.S. Ahmad](https://isahmadbbr.github.io) |
 | 4 | Repetition with Loops | [Slides](slide/w3.pdf) | [Lab](notebooks/w3.ipynb) | [Session 1](https://youtu.be/ZVJlCmT9UTc), [Session 2](https://youtu.be/-FzbIk-Caxo) | `while`, `for`, `range`, accumulator & sentinel patterns | Ch. 3 (loops) | [Dr S.H.Muhammad](https://shmuhammadd.github.io) & [Dr. I.S. Ahmad](https://isahmadbbr.github.io)|
 | 5 | Loop Patterns & Nested Logic | [Slides](slide/w3.pdf) | [Lab](notebooks/w3.ipynb) | [Session 1](https://youtu.be/X3laMo8mg5E), [Session 2](https://youtu.be/_yUpa8Qr8ow) | Nested loops, combining loops with conditions, input validation, debugging | Ch. 3 (cont.) | [Dr. I.S. Ahmad](https://isahmadbbr.github.io)  | 
-| 6 | Strings & Lists | TBA | TBA | TBA | Indexing, slicing, string methods, list operations, iteration | Ch. 4, §5.1 | [Dr S.H.Muhammad](https://shmuhammadd.github.io) |
-| 7 | Dictionaries & First Functions | TBA | TBA | TBA | Key/value lookup, dict methods, defining functions, parameters, `return` | Ch. 5, §6.1 |[Dr S.H.Muhammad](https://shmuhammadd.github.io) |
+| 6 | Strings & Lists | [Slides](slide/w6.pdf) | [Lab](notebooks/w6.ipynb) | TBA | Indexing, slicing, string methods, list operations, iteration | Ch. 4, §5.1 | [Dr. I.S. Ahmad](https://isahmadbbr.github.io) |
+| 7 | Dictionaries & First Functions | TBA | TBA | TBA | Key/value lookup, dict methods, defining functions, parameters, `return` | Ch. 5, §6.1 |[Dr. I.S. Ahmad](https://isahmadbbr.github.io) |
 | 8 | Functions in Depth & Capstone | TBA | TBA | TBA | Scope, multiple parameters, decomposition, end-to-end capstone program | Ch. 6 | [Dr S.H.Muhammad](https://shmuhammadd.github.io)|
 
 *Slide decks, lab notebooks, and session recordings will be linked here as each session is delivered.*
