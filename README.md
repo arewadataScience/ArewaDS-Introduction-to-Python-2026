@@ -139,7 +139,7 @@ The Arewa DataScience Fellowship's original setup guides remain available for re
 | 5 | Loop Patterns & Nested Logic | [Slides](slide/w3.pdf) | [Lab](notebooks/w3.ipynb) | [Session 1](https://youtu.be/X3laMo8mg5E), [Session 2](https://youtu.be/_yUpa8Qr8ow) | Nested loops, combining loops with conditions, input validation, debugging | Ch. 3 (cont.) | [Dr. I.S. Ahmad](https://isahmadbbr.github.io)  | 
 | 6 | Strings & Lists | [Slides](slide/w6.pdf) | [Lab](notebooks/w6.ipynb) | [Session 1](https://youtu.be/BKtDJ1r_2Mo), [Session 2](https://youtu.be/9ww6o687awU) | Indexing, slicing, string methods, list operations, iteration | Ch. 4, §5.1 | [Dr. I.S. Ahmad](https://isahmadbbr.github.io) |
 | 7 | Dictionaries & First Functions | TBA | [Lab](notebooks/w7.ipynb) | [Session 2](https://youtu.be/DcDVk7qVN90) | Key/value lookup, dict methods, defining functions, parameters, `return` | Ch. 5, §6.1 |[Lukman A. Jibril](#) [Dr. I.S. Ahmad](https://isahmadbbr.github.io) |
-| 8 | Functions in Depth & Capstone | TBA | TBA | [Lab](notebooks/w8.ipynb) | Scope, multiple parameters, decomposition, end-to-end capstone program | Ch. 6 | [Dr S.H.Muhammad](https://shmuhammadd.github.io)|
+| 8 | Functions in Depth | TBA | [Session 1](https://youtu.be/0nFupWTYduU) | [Lab](notebooks/w8.ipynb) | Scope, multiple parameters, decomposition, end-to-end capstone program | Ch. 6 | [Dr S.H.Muhammad](https://shmuhammadd.github.io)|
 
 *Slide decks, lab notebooks, and session recordings will be linked here as each session is delivered.*
 
